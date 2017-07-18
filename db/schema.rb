@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718020617) do
+ActiveRecord::Schema.define(version: 20170718023617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20170718020617) do
     t.integer  "user_id"
     t.integer  "post_id"
     t.text     "description"
-    t.integer  "stars"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["post_id"], name: "index_reviews_on_post_id", using: :btree
