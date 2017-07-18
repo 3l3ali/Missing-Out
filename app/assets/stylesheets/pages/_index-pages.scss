@@ -1,0 +1,46 @@
+.map{
+  width:100%;
+}
+
+.list{
+  display: flex;
+}
+.list-item {
+  display:flex;
+  -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+}
+.list-img {
+  float:left;
+  width:40%;
+}
+.list-des h4{
+  color: #0092CA;
+  line-height: 10px;
+
+}
+.list-des p{
+  line-height: 8px;
+  font-size: 14px;
+
+}
+.list-img img{
+  width:100%;
+
+}
+.list-des{
+  float:left;
+  width:55%;
+  margin: 10px;
+
+}
+.list-link{
+  float:right;
+  width: 5%;
+
+}
+.list-link a{
+
+}
