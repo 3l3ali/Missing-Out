@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.following = []
+    @user.followers = []
     if @user.save
       redirect_to root_path
     else
@@ -41,6 +43,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :photo)
     end
 end
