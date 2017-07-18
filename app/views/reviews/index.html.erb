@@ -1,5 +1,0 @@
-<% @reviews.each do |review| %>
-  <%= review.description %>
-  <%= link_to "Edit", edit_review_path(review)  %>
-  <%= link_to "Delete", review_path(review), method: :delete  %>
-<% end %>

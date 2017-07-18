@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   belongs_to :location
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :title, presence: true
   validates :description, presence: true
