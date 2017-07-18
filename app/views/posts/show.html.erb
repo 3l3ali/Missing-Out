@@ -3,10 +3,9 @@
 <% end %>
 <%= @post.title %><br>
 <%= @post.description %>
-<% @post.reviews.each do |review| %>
-  <%= review.description %>
-  <%= link_to "edit", edit_post_review_path(review.post, review) %>
-  <%= link_to "delete", post_review_path(review.post, review), method: :delete, data: {confirm: "Are you sure?"} %><hr>
-<% end %>
-
+<div id="reviews">
+  <% @post.reviews.each do |review| %>
+    <%= render 'review' , review: review %>
+  <% end %>
+</div>
 <%= render 'reviews/form', post: @post, review: @review %>
