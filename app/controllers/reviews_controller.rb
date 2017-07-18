@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:edit, :update, :destroy]
 
   def index         # GET /reviews
     @reviews = Review.all
@@ -15,10 +15,12 @@ class ReviewsController < ApplicationController
   def create        # review /reviews
     @review = Review.new(review_params)
     @review.user = current_user
+    @post = Post.find(params[:post_id])
+    @review.post = @post
     if @review.save
-      redirect_to reviews_path
+      redirect_to post_path(@review.post)
     else
-      render :new
+      render 'posts/show'
     end
   end
 
@@ -26,13 +28,16 @@ class ReviewsController < ApplicationController
   end
 
   def update        # PATCH /reviews/:id
-    @review.update(review_params)
-    redirect_to root_path
+    if @review.update(review_params)
+      redirect_to post_path(@review.post)
+    else
+      render 'edit'
+    end
   end
 
   def destroy       # DELETE /reviews/:id
     @review.destroy
-    redirect_to reviews_path
+    redirect_to post_path(@review.post)
   end
 
   private

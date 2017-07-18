@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show          # GET /posts/:id
+    @review = Review.new
   end
 
   def new           # GET /posts/new
