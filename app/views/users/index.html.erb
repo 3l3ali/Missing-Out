@@ -4,6 +4,5 @@
     <%= cl_image_tag user.photo.path, width: 200, height: 300, crop: :fill %>
   <% end %>
 
-  <%= user.first_name %>
-  <%= user.last_name %>
+  <%= link_to "#{user.first_name}  #{user.last_name}", user_path(user) %>
 <% end %>
