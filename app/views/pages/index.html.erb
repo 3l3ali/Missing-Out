@@ -1,5 +1,22 @@
 <div class="search-bar"></div>
-<div class="map"></div>
+<div class="map">
+  <% content_for(:after_js) do %>
+    <script>
+      function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          }
+      }
+
+      function showPosition(position) {
+        console.log(position);
+      }
+
+      getLocation();
+
+    </script>
+  <% end %>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
