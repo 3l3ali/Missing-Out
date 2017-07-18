@@ -1,0 +1,16 @@
+// app/views/reviews/create.js.erb
+// Here you will write *javascript* that would be executed by the browser
+<% if @review.errors.any? %>
+  // Render new review form with errors
+  $('#new_review').html("<%= j render 'reviews/form', post: @post, review: @review %>");
+<% else %>
+  // Create a paragraph for the new review. But hide it.
+   $('#reviews').append("<%= j render 'posts/review', review: @review %>");
+  // $('#reviews').append(new_review);
+  // Show the new review with an animation!
+  // new_review.slideDown();
+  // new_review.toggle();
+
+  // Reset the form
+  $('#new_review').html("<%= j render 'reviews/form', post: @post, review: Review.new %>");
+<% end %>

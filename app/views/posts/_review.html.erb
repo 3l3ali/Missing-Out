@@ -1,0 +1,3 @@
+<%= review.description %>
+<%= link_to "edit", edit_post_review_path(review.post, review) %>
+<%= link_to "delete", post_review_path(review.post, review), method: :delete, data: {confirm: "Are you sure?"} %><hr>
