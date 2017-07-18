@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718024816) do
+ActiveRecord::Schema.define(version: 20170718052513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 20170718024816) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followed_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "locations", force: :cascade do |t|
@@ -55,9 +62,9 @@ ActiveRecord::Schema.define(version: 20170718024816) do
     t.integer  "user_id"
     t.integer  "post_id"
     t.text     "description"
+    t.integer  "stars"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.boolean  "recommended"
     t.index ["post_id"], name: "index_reviews_on_post_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
