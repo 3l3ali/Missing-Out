@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+# OUR GEMS BEGIN HERE
+  gem 'cloudinary', '1.1.7'
+  gem 'attachinary', github: 'assembler/attachinary'
+  gem 'jquery-fileupload-rails'
+  gem 'coffee-rails'
+# ENDS HERE
+
+
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
