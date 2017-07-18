@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   has_attachments :photos, maximum: 5
 
   belongs_to :user
-  belongs_to :location
+  belongs_to :location, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
   validates :title, presence: true
