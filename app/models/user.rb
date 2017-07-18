@@ -1,7 +1,10 @@
 class User < ApplicationRecord
 
-  has_many :reviews
-  has_many :posts
+  validates :first_name, presence: :true
+  validates :first_name, presence: :true
+
+  has_many :reviews, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
