@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :users
-  resources :posts
-  resources :reviews
+  resources :users, only: [:index, :show, :destroy]
+
+  resources :posts do
+    resources :reviews, except: [:show]
+  end
 
   mount Attachinary::Engine => "/attachinary"
 end
