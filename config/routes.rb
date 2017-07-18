@@ -9,5 +9,8 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show]
   end
 
+  get '/dashboard', to: 'pages#dashboard'
+  get '/home', to: 'pages#home'
+
   mount Attachinary::Engine => "/attachinary"
 end
