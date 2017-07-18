@@ -1,4 +1,6 @@
-<%= cl_image_tag @product.photo, height: 300, width: 400, crop: :fill %>
+<% @post.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
 <%= @post.title %><br>
 <%= @post.description %>
 <%#= @post.location %>

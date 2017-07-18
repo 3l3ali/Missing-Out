@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  mount_uploader :photo, PhotoUploader
+  has_attachments :photos, maximum: 2
 
   belongs_to :user
   belongs_to :location

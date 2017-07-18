@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :photo, :photo_cache)
+    params.require(:post).permit(:title, :description, photos: [])
   end
 
   def set_post
