@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  has_attachments :photos, maximum: 2
+  has_attachments :photos, maximum: 5
 
   belongs_to :user
   belongs_to :location
