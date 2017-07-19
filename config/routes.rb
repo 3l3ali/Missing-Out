@@ -7,10 +7,14 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :reviews, except: [:show]
+    resources :locations, only: [:new, :create, :edit, :update]
   end
 
   get '/dashboard', to: 'pages#dashboard'
   get '/home', to: 'pages#home'
+  get '/index', to: 'pages#index'
+
+
 
   mount Attachinary::Engine => "/attachinary"
 end

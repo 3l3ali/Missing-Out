@@ -18,9 +18,15 @@ class ReviewsController < ApplicationController
     @post = Post.find(params[:post_id])
     @review.post = @post
     if @review.save
-      redirect_to post_path(@review.post)
+      respond_to do |format|
+        format.html { redirect_to post_path(@review.post) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render 'posts/show'
+      respond_to do |format|
+        format.html { render 'posts/show' }
+        format.js  # <-- idem
+      end
     end
   end
 
