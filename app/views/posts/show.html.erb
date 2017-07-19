@@ -37,14 +37,13 @@
           <%= render 'reviews/form', post: @post, review: @review %>
         </div>
         <ul id="myReviews" class="my-reviews">
-          <% @post.reviews.each do |review| %>
             <li>
-              <%= review.description %>
-              <%= @post.reviews.where(recommended: true).count %>
-              <%= link_to "edit", edit_post_review_path(review.post, review) %>
-              <%= link_to "delete", post_review_path(review.post, review), method: :delete, data: {confirm: "Are you sure?"} %>
+                <% @post.reviews.each do |review| %>
+                <div id="reviews">
+                  <%= render 'review' , review: review %>
+                <% end %>
+              </div>
             </li>
-          <% end %>
         </ul>
       </div>
       <div id="loadMore" class="text-center">Load more</div>
@@ -53,10 +52,4 @@
 </div>
 
 
-<div id="reviews">
-  <% @post.reviews.each do |review| %>
-    <%= render 'review' , review: review %>
-  <% end %>
-</div>
-<%= render 'reviews/form', post: @post, review: @review %>
 
