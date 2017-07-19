@@ -37,13 +37,13 @@
           <%= render 'reviews/form', post: @post, review: @review %>
         </div>
         <ul id="myReviews" class="my-reviews">
-            <li>
-                <% @post.reviews.each do |review| %>
-                <div id="reviews">
-                  <%= render 'review' , review: review %>
-                <% end %>
+          <li>
+            <% @post.reviews.each do |review| %>
+              <div id="reviews">
+                <%= render 'review' , review: review %>
               </div>
-            </li>
+            <% end %>
+          </li>
         </ul>
       </div>
       <div id="loadMore" class="text-center">Load more</div>

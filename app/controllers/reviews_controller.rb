@@ -48,7 +48,12 @@ class ReviewsController < ApplicationController
   def destroy       # DELETE /reviews/:id
     authorize @review
     @review.destroy
-    redirect_to post_path(@review.post)
+    # redirect_to post_path(@review.post)
+    respond_to do |format|
+      format.html { redirect_to post_path(@review.post) }
+      format.js  # <-- idem
+    end
+
   end
 
   private
