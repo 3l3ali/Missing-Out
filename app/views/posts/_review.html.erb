@@ -1,5 +1,16 @@
-<div data-review-id=<%= review.id %>>
-<%= review.description %>
-<%= link_to "edit", edit_post_review_path(review.post, review) %>
-<%= link_to "delete", post_review_path(review.post, review), method: :delete ,data: {confirm: "Are you sure?"} %><hr>
-</div>
+<table class="review-table">
+  <tr>
+    <td width="20%">
+      <%= review.user.photo %>
+    </td>
+    <td width="70%">
+      <%= review.description %>
+    </td>
+    <td width="10%">
+      <%= link_to "edit", edit_post_review_path(review.post, review) %>
+      <%= link_to "delete", post_review_path(review.post, review), method: :delete ,data: {confirm: "Are you sure?"} %>
+    </td>
+  </tr>
+</table>
+<hr>
+

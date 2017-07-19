@@ -1,12 +1,12 @@
 $(document).ready(function () {
-    $('#myReviews li').hide();
-    size_li = $("#myReviews li").size();
-    x=2;
-    $('#myReviews li:lt('+x+')').show();
+    $('#myReviews li div').hide();
+    size_li = $("#myReviews li div").size();
+    x=3;
+    $('#myReviews li div:lt('+x+')').show();
     $('#loadMore').click(function () {
         console.log("heeeyy");
         x= (x+5 <= size_li) ? x+5 : size_li;
-        $('#myReviews li:lt('+x+')').show();
+        $('#myReviews li div:lt('+x+')').show();
             if (size_li == x)
             {
               $('#loadMore').hide();
