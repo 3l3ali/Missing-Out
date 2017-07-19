@@ -1,3 +1,7 @@
+<% content_for(:title) do %>
+  Posts | Missing Out
+<% end %>
+
 <% if policy(Post).create? %>
   <%= link_to "create post", new_post_path %>
 <% end %><br>

@@ -62,9 +62,13 @@ img {
 }
 
 #sign-in-out {
+
   color: white;
 
-  &:hover {
+  a {
+    color: white;
+  }
+  a:hover {
     text-decoration: none;
     color: #7BC2FF;
   }
