@@ -13,7 +13,9 @@ class PagesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { location: location })
+      marker.infowindow render_to_string(partial: "/locations/map_box", locals: { location: location })
     end
+
+    @posts = Post.all
   end
 end
