@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
@@ -23,5 +24,6 @@
     <%= cloudinary_js_config %>
 
     <%= yield(:after_js) %>
+
   </body>
 </html>

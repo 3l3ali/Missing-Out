@@ -1,41 +1,54 @@
 <div class="search-bar"></div>
 
-
-<div >
-  <% content_for(:after_js) do %>
-    <script>
-      function getLocation() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-          }
-      }
-
-      function showPosition(position) {
-        console.log(position);
-      }
-
-      getLocation();
-
-    </script>
-  <% end %>
-</div>
-
 <div id="map" style="width: 100%; height: 200px;" ></div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
+
+
+
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
+
+
+        function getLocation() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition);
+            }
         }
+
+        function showPosition(position) {
+          markers = handler.addMarkers([{
+            "infowindow": "Your Location",
+            "lat": position["coords"]["latitude"],
+            "lng": position["coords"]["longitude"],
+            "picture": ({
+              "url": "assets/blue.png",
+              "width":  32,
+              "height": 32
+            })
+          }]);
+
+
+          handler.bounds.extendWith(markers);
+
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(12);
+          }
+
+          }
+
+        getLocation();
+
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+
       });
+
+
     });
   <% end %>
 <% end %>
