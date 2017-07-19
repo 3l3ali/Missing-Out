@@ -4,11 +4,13 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    authorize @location
   end
 
   def create
     @location = Location.new(location_params)
     @post.location = @location
+    authorize @location
     if @location.save
       redirect_to post_path(@post)
     else
@@ -17,10 +19,12 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    authorize @location
   end
 
   def update
     @location.update(location_params)
+    authorize @location
   end
 
   private

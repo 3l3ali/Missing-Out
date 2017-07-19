@@ -1,12 +1,55 @@
-<% @post.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-<%= @post.title %><br>
-<%= @post.description %>
-<% @post.reviews.each do |review| %>
-  <%= review.description %>
-  <%= link_to "edit", edit_post_review_path(review.post, review) %>
-  <%= link_to "delete", post_review_path(review.post, review), method: :delete, data: {confirm: "Are you sure?"} %><hr>
-<% end %>
 
-<%= render 'reviews/form', post: @post, review: @review %>
+<div class="show-container">
+  <div class="show-photo">
+    <% @post.photos.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+    <% end %>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="show-box">
+          <div class="show-title">
+            <h2><%= @post.title %></h2>
+            <p>Tour, 123 Tokyo Street, Tokyo, Japan</p>
+          </div>
+          <div class="get-direction">
+            <a href="#" class="btn btn-primary">Get Directions</a>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div class="show-info">
+          <p><strong>Hours of Operation:</strong> Monday - Friday 9AM - 5PM</p>
+          <p><strong>Contact:</strong>  www.sake.co.jp | +81 75-771-0246</p>
+        </div>
+        <div class="place-review">
+          <p><%= @post.description %></p>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="review-header">
+          <div class="review-title">
+            <h4>Reviews:</h4>
+          </div>
+          <div id="addReview" class="btn btn-primary">Add A review</div>
+        </div>
+        <div id="reviewForm">
+          <%= render 'reviews/form', post: @post, review: @review %>
+        </div>
+        <ul id="myReviews" class="my-reviews">
+          <li>
+            <% @post.reviews.each do |review| %>
+              <div id="reviews">
+                <%= render 'review' , review: review %>
+              </div>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div id="loadMore" class="text-center">Load more</div>
+    </div>
+  </div>
+</div>
+
+
+
