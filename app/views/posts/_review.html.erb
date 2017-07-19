@@ -7,8 +7,8 @@
       <%= review.description %>
     </td>
     <td width="10%">
-      <%= link_to "edit", edit_post_review_path(review.post, review) %>
-      <%= link_to "delete", post_review_path(review.post, review), method: :delete ,data: {confirm: "Are you sure?"} %>
+      <%= link_to "Update", edit_post_review_path(review.post, review) if policy(review).edit? %>
+      <%= link_to "delete", post_review_path(review.post, review), method: :delete ,data: {confirm: "Are you sure?"} if policy(review).destroy? %>
     </td>
   </tr>
 </table>
