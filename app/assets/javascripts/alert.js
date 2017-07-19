@@ -1,5 +1,5 @@
-// setTimeout(fade_out, 2000);
+setTimeout(fade_out, 2000);
 
-// function fade_out() {
-//   $("#timerDissolve").fadeOut();
-// }
+function fade_out() {
+  $("#timerDissolve").fadeOut();
+}
