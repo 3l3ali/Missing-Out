@@ -52,11 +52,20 @@ img {
   height: 40%;
   border: 100px auto;
 }
-.facebook a{
+
+#home-fb-link:hover {
+  div {
+    background: #1A3474;
+  }
+
   text-decoration: none;
-  color:#fff;
 }
 
-.sign-in {
-  margin: 0 auto;
+#sign-in-out {
+  color: white;
+
+  &:hover {
+    text-decoration: none;
+    color: #7BC2FF;
+  }
 }
