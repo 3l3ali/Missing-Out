@@ -4,3 +4,11 @@
 
 
 <h2>Username: <%= @user.first_name %> <%= @user.last_name %></h2>
+
+<% if current_user && (current_user.id != @user.id) %>
+  <% unless @user.follower_ids.include?(current_user.id) %>
+    <%= link_to "Follow", followings_create_path(user_id: @user.id) %>
+  <% else %>
+    <%= link_to "unfollow", followings_destroy_path(user_id: @user.id) %>
+  <% end %>
+<% end %>
