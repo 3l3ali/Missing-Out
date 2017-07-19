@@ -1,0 +1,46 @@
+.show-title h2{
+  line-height:14px;
+}
+.show-title p{
+  font-size:14px;
+}
+.show-info p{
+  font-size:14px;
+  line-height:10px;
+}
+.show-box {
+  display:flex;
+  -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: space-between;
+   justify-content: space-between;
+}
+.show-title {
+  float:left;
+}
+.get-direction{
+  float:right;
+}
+.clear {
+  clear:left;
+}
+.place-review {
+  margin-top: 25px;
+}
+.place-review p{
+  color:#95989A;
+}
+.review-header{
+  display:flex;
+  -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: space-between;
+   justify-content: space-between;
+}
+.my-reviews{
+
+}
+.my-reviews li{
+  list-style: none;
+
+}
