@@ -1,0 +1,53 @@
+abbr {
+  text-decoration: none;
+  border-bottom:0;
+}
+abbr[title] {
+  text-decoration: none;
+  border-bottom:0;
+}
+.sign-up-card {
+  color:#fff;
+
+}
+.sign-up-card .help-block {
+  color:#D0D0D0;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 10px;
+}
+
+.or-break {
+  display:flex;
+
+}
+.or-line {
+  width:40%;
+  margin-top:11px;
+  display: block;
+  top: 10px;
+  float: left;
+  height: 2px;
+  background: rgba(255,255,255,0.6);
+  float:left;
+}
+.or-class{
+  font-family: "Gotham_SSm_4r",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  display: block;
+  float: left;
+  width: 14%;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+}
+.photo-upload-align {
+
+}
+.user_photo {
+  line-height:0px;
+  margin-right: 10px;
+}
+.sign-in-fb a{
+  text-decoration:none;
+}
