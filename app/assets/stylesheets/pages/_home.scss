@@ -6,7 +6,7 @@
   background-image: image-url('mobilebg.png');
   width: 100%;
   background-size: cover;
-  height:130vh;
+  height:100vh;
 
 }
 
@@ -16,7 +16,7 @@ img {
 }
 
 .blue-letters{
-  color:#0092CA;
+  color:$blue;
   line-height: 10px;
   text-align: left;
   font-weight: bold;
