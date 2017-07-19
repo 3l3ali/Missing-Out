@@ -6,7 +6,7 @@
   background-image: image-url('mobilebg.png');
   width: 100%;
   background-size: cover;
-  height:130vh;
+  height:100vh;
 
 }
 
@@ -16,7 +16,7 @@ img {
 }
 
 .blue-letters{
-  color:#0092CA;
+  color:$blue;
   line-height: 10px;
   text-align: left;
   font-weight: bold;
@@ -29,10 +29,10 @@ img {
   font-weight: bold;
   font-size: 68px
 }
-.text-center{
-  color:#EEEEEE;
-  font-size: 130%;
-}
+// .text-center{
+//   color:#EEEEEE;
+//   font-size: 130%;
+// }
 .missing-out {
   width: 240px ;
   margin: 130px auto 80px auto;
@@ -52,11 +52,20 @@ img {
   height: 40%;
   border: 100px auto;
 }
-.facebook a{
+
+#home-fb-link:hover {
+  div {
+    background: #1A3474;
+  }
+
   text-decoration: none;
-  color:#fff;
 }
 
-.sign-in {
-  margin: 0 auto;
+#sign-in-out {
+  color: white;
+
+  &:hover {
+    text-decoration: none;
+    color: #7BC2FF;
+  }
 }
