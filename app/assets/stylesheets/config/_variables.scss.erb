@@ -9,11 +9,11 @@ $base-font: "Open Sans", "Helvetica", "sans-serif";
 // Local fonts (uncomment following lines)
 @font-face {
   font-family: "Gotham";
-  src: font-url('Gotham-Book.eot'),
-       font-url('Gotham-Book.eot?#iefix') format('embedded-opentype'),
-       font-url('Gotham-Book.woff') format('woff'),
-       font-url('onts/gotham/Gotham-Book.ttf') format('truetype'),
-       font-url('Gotham-Book.svg#svgFontName') format('svg')
+  src: font-url('<%= asset_path "gotham-rounded/gothamrnd-book-webfont.eot" %>'),
+       font-url('<%= asset_path "gotham-rounded/gothamrnd-book-webfont.eot?#iefix" %>') format('embedded-opentype'),
+       font-url('<%= asset_path "gotham-rounded/gothamrnd-book-webfont.woff" %>') format('woff'),
+       font-url('<%= asset_path "gotham-rounded/gothamrnd-book-webfont.ttf" %>') format('truetype'),
+       font-url('<%= asset_path "gotham-rounded/gothamrnd-book-webfont.svg#svgFontName" %>') format('svg')
 
 }
 $header-font: "Gotham";
