@@ -6,4 +6,8 @@ module ApplicationHelper
       default
     end
   end
+
+  def should_it_show
+    ( params[:action] == "home") || (( params[:action] == "new") && (params[:controller] == "devise/sessions" )) || (( params[:action] == "new") && (params[:controller] == "devise/registrations" ))
+  end
 end
