@@ -4,17 +4,19 @@
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 $base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
+// $header-font: "Raleway", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "Gotham";
+  src: font-url('Gotham-Book.eot'),
+       font-url('Gotham-Book.eot?#iefix') format('embedded-opentype'),
+       font-url('Gotham-Book.woff') format('woff'),
+       font-url('onts/gotham/Gotham-Book.ttf') format('truetype'),
+       font-url('Gotham-Book.svg#svgFontName') format('svg')
+
+}
+$header-font: "Gotham";
 
 // Font-size and line-height
 $base-size: 16px;

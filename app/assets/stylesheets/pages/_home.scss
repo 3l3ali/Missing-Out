@@ -12,7 +12,6 @@
 
 img {
     width: 100%;
-    height: auto;
 }
 
 .blue-letters{
@@ -24,7 +23,7 @@ img {
 
 }
 .white-letters{
-  color:#EEEEEE;
+  color:white;
   text-align: right;
   font-weight: bold;
   font-size: 68px
@@ -35,11 +34,11 @@ img {
 // }
 .missing-out {
   width: 240px ;
-  margin: 130px auto 80px auto;
+  margin: 90px auto 0;
 }
 .backpacker-content{
-  width:47%;
-  margin:120px auto 80px auto;
+  width:75%;
+  margin:90px auto;
 }
 
 .facebook {
@@ -72,4 +71,7 @@ img {
     text-decoration: none;
     color: #7BC2FF;
   }
+}
+.home-sign-in{
+  margin-top: 100px;
 }
