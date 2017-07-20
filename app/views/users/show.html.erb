@@ -7,7 +7,7 @@
 <%# end %>
 
 <!-- User avatar  -->
-<div class="review-avatar" style="width: 50px; height: 50px;">
+<div class="profile-avatar">
 <% if current_user.id == @user.id %>
   <% unless @user.facebook_picture_url.present? %>
     <%= cl_image_tag @user.photo.path if @user.photo.present? %>
@@ -17,9 +17,11 @@
 <% end %>
 </div>
 <!-- edit profile link -->
-<%= link_to "Edit Profile", edit_user_registration_path %>
+<div class="edit-profile">
+  <%= link_to "Edit Profile", edit_user_registration_path %>
 <!-- user first name -->
-<h2>Username: <%= @user.first_name %> <%= @user.last_name %></h2>
+  <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+</div>
 
 <!-- Follow/unfollow button -->
 <% if current_user && (current_user.id != @user.id) %>
