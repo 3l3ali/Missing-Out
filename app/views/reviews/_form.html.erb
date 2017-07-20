@@ -1,7 +1,3 @@
-<% content_for(:title) do %>
-  New Review | Missing Out
-<% end %>
-
 <%= simple_form_for([post, review], remote: true) do |f| %>
   <%= f.input :description, label: "Review" %>
   <%= f.input :recommended %>
