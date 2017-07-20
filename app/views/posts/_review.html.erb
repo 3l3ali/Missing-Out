@@ -2,15 +2,15 @@
   <table class="review-table">
     <tr>
       <td width="20%">
-        <div class="review-avatar">
-          <%= link_to user_path(review.user) do %>
+        <%= link_to user_path(review.user) do %>
+          <div class="review-avatar">
             <% unless review.user.facebook_picture_url.present? %>
               <%= cl_image_tag review.user.photo.path if review.user.photo.present? %>
             <% else %>
               <%= image_tag review.user.facebook_picture_url %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </td>
       <td width="60%">
         <%= review.description %>
