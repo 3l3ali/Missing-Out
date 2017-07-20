@@ -2,6 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
 .home-container{
   background-image: image-url('mobilebg.png');
   width: 100%;
@@ -33,23 +34,24 @@ img {
 //   font-size: 130%;
 // }
 .missing-out {
-  width: 240px ;
-  margin: 90px auto 0;
+  width: 250px ;
+  margin: 70px auto 0;
 }
 .backpacker-content{
   width:75%;
-  margin:90px auto;
+  margin:40px auto;
 }
 
 .facebook {
   background: #4862a3;
   border-radius: 150px;
   color:#fff;
-  padding: 20px ;
-  margin: 20px auto;
-  width: 78%;
+  padding: 10px ;
+  margin: 0px auto 20px;
+  width: 100%;
   height: 40%;
   border: 100px auto;
+  text-align:center;
 }
 
 #home-fb-link:hover {
@@ -73,5 +75,11 @@ img {
   }
 }
 .home-sign-in{
-  margin-top: 100px;
+  margin-top: 80px;
+}
+.logo-link a{
+  text-decoration:none;
+}
+.login-spacing{
+  margin-top:50px;
 }
