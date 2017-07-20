@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :reviews, except: [:show]
-    resources :locations, only: [:new, :create, :edit, :update]
   end
 
   get '/dashboard', to: 'pages#dashboard'
