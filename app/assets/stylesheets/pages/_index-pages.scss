@@ -11,10 +11,14 @@
    align-items: center;
    -webkit-justify-content: center;
    justify-content: center;
+   margin-top:20px;
 }
 .list-img {
   float:left;
-  width:40%;
+  width:30%;
+}
+.list-img img{
+  width:100%;
 }
 .list-des h4{
   color: #0092CA;
@@ -32,7 +36,7 @@
 }
 .list-des{
   float:left;
-  width:55%;
+  width:65%;
   margin: 10px;
 
 }
