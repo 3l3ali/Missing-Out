@@ -38,11 +38,11 @@
         </div>
         <ul id="myReviews" class="my-reviews">
           <li>
-            <% @post.reviews.each do |review| %>
-              <div id="reviews">
+            <div id="reviews">
+              <% @post.reviews.each do |review| %>
                 <%= render 'review' , review: review %>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </li>
         </ul>
       </div>
