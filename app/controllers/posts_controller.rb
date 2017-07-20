@@ -14,15 +14,17 @@ class PostsController < ApplicationController
 
   def new           # GET /posts/new
     @post = Post.new
+    @post.location = Location.new
     authorize @post
   end
 
   def create        # POST /posts
     @post = Post.new(post_params)
     @post.user = current_user
+    @post.location = Location.create(location_params)
     authorize @post
     if @post.save
-      redirect_to new_post_location_path(@post)
+      redirect_to @post
     else
       render :new
     end
@@ -35,7 +37,8 @@ class PostsController < ApplicationController
   def update        # PATCH /posts/:id
     authorize @post
     @post.update(post_params)
-    redirect_to root_path
+    @post.location.update(location_params) if @post.location.present?
+    redirect_to @post
   end
 
   def destroy       # DELETE /posts/:id
@@ -47,7 +50,12 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, photos: [])
+    params.require(:post).permit(:title, :description, :category, photos: [])
+  end
+
+
+  def location_params
+    params.require(:post).require(:location).permit(:name, :address)
   end
 
   def set_post
