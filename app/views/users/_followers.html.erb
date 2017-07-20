@@ -1,0 +1,10 @@
+<% @user.followers.each do |follower| %>
+ <!--  <div>
+    <#% unless following.facebook_picture_url.present? %>
+      <%#= cl_image_tag following.photo.path if following.photo.present? %>
+    <%# else %>
+      <%#= image_tag following.facebook_picture_url %>
+    <%# end %>
+  </div> -->
+  <%= link_to follower.first_name, user_path(follower) %><br>
+<% end %>

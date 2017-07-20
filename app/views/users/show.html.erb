@@ -2,17 +2,48 @@
   Profile | Missing Out
 <% end %>
 
-<% if @user.photo? %>
-  <%= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
+<%# if @user.photo? %>
+  <%#= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
+<%# end %>
+
+<!-- User avatar  -->
+<div class="review-avatar" style="width: 50px; height: 50px;">
+<% if current_user.id == @user.id %>
+  <% unless @user.facebook_picture_url.present? %>
+    <%= cl_image_tag @user.photo.path if @user.photo.present? %>
+  <% else %>
+    <%= image_tag @user.facebook_picture_url %>
+  <% end %>
 <% end %>
-
-
+</div>
+<!-- edit profile link -->
+<%= link_to "Edit Profile", edit_user_registration_path %>
+<!-- user first name -->
 <h2>Username: <%= @user.first_name %> <%= @user.last_name %></h2>
 
+<!-- Follow/unfollow button -->
 <% if current_user && (current_user.id != @user.id) %>
   <% unless @user.follower_ids.include?(current_user.id) %>
     <%= link_to "Follow", followings_create_path(user_id: @user.id) %>
   <% else %>
-    <%= link_to "unfollow", followings_destroy_path(user_id: @user.id) %>
+    <%= link_to "Unfollow", followings_destroy_path(user_id: @user.id) %>
   <% end %>
 <% end %>
+
+
+<!-- follwings/followers tabs -->
+<div>
+  <% if user_signed_in? %>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#following" aria-controls="following" role="tab" data-toggle="tab">Following</a></li>
+      <li role="presentation"><a href="#followers" aria-controls="followers" role="tab" data-toggle="tab">Followers</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="following"><%= render 'following' %></div>
+      <div role="tabpanel" class="tab-pane" id="followers"><%= render 'followers' %></div>
+    </div>
+  <% end %>
+</div>
