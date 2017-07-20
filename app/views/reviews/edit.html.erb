@@ -1,3 +1,7 @@
+<% content_for(:title) do %>
+  Edit Review | Missing Out
+<% end %>
+
 <%= simple_form_for [@review.post, @review] do |f| %>
   <%= f.input :description %>
   <%= f.input :recommended %>

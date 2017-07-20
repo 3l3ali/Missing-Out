@@ -5,6 +5,14 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def follow?
+    user != record
+  end
+
+  def unfollow?
+    user != record
+  end
+
   def destroy?
     record.user == user
   end

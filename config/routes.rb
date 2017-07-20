@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'followings/create'
+
+  get 'followings/destroy'
+
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
@@ -14,7 +18,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
   get '/home', to: 'pages#home'
   get '/index', to: 'pages#index'
-
 
 
   mount Attachinary::Engine => "/attachinary"

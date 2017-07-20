@@ -6,17 +6,16 @@
   background-image: image-url('mobilebg.png');
   width: 100%;
   background-size: cover;
-  height:130vh;
+  height:100vh;
 
 }
 
 img {
     width: 100%;
-    height: auto;
 }
 
 .blue-letters{
-  color:#0092CA;
+  color:$blue;
   line-height: 10px;
   text-align: left;
   font-weight: bold;
@@ -24,22 +23,22 @@ img {
 
 }
 .white-letters{
-  color:#EEEEEE;
+  color:white;
   text-align: right;
   font-weight: bold;
   font-size: 68px
 }
-.text-center{
-  color:#EEEEEE;
-  font-size: 130%;
-}
+// .text-center{
+//   color:#EEEEEE;
+//   font-size: 130%;
+// }
 .missing-out {
   width: 240px ;
-  margin: 130px auto 80px auto;
+  margin: 90px auto 0;
 }
 .backpacker-content{
-  width:47%;
-  margin:120px auto 80px auto;
+  width:75%;
+  margin:90px auto;
 }
 
 .facebook {
@@ -52,11 +51,27 @@ img {
   height: 40%;
   border: 100px auto;
 }
-.facebook a{
+
+#home-fb-link:hover {
+  div {
+    background: #1A3474;
+  }
+
   text-decoration: none;
-  color:#fff;
 }
 
-.sign-in {
-  margin: 0 auto;
+#sign-in-out {
+
+  color: white;
+
+  a {
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #7BC2FF;
+  }
+}
+.home-sign-in{
+  margin-top: 100px;
 }
