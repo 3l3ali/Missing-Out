@@ -10,13 +10,15 @@
           <% end %>
         </div>
       </td>
-      <td width="15%">
-        <% if review.recommended %>
-          <%= image_tag "recommended.png" %>
-        <% end %>
-      </td>
       <td width="60%">
         <%= review.description %>
+      </td>
+      <td width="15%">
+        <div class="recommended-img">
+          <% if review.recommended %>
+            <%= image_tag "recommended.png" %>
+          <% end %>
+        </div>
       </td>
       <td width="5%">
           <%= link_to "Update", edit_post_review_path(review.post, review) if policy(review).edit? %>
