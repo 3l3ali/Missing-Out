@@ -79,7 +79,9 @@
                 <!-- <p><%#= pluralize(1, 'friend') pluralize(1, 'has') %>been here</p> -->
             </div>
             <div class="list-link">
-              <%= link_to ">", post_path(post) %>
+              <%= link_to post_path(post) do %>
+                <i class="fa fa-arrow-right"></i>
+              <% end %>
             </div>
           </div>
         <% end %>
