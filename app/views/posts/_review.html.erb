@@ -3,10 +3,12 @@
     <tr>
       <td width="20%">
         <div class="review-avatar">
-          <% unless review.user.facebook_picture_url.present? %>
-            <%= cl_image_tag review.user.photo.path if review.user.photo.present? %>
-          <% else %>
-            <%= image_tag review.user.facebook_picture_url %>
+          <%= link_to user_path(review.user) do %>
+            <% unless review.user.facebook_picture_url.present? %>
+              <%= cl_image_tag review.user.photo.path if review.user.photo.present? %>
+            <% else %>
+              <%= image_tag review.user.facebook_picture_url %>
+            <% end %>
           <% end %>
         </div>
       </td>
