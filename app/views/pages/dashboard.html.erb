@@ -5,6 +5,11 @@
 <div class="dashboard-container">
   <div class="container">
     <div class="row">
+      <div class="col-xs-12">
+        <div class="dashboard-header">
+          <h2>Dashboard</h2>
+        </div>
+      </div>
       <div class="col-xs-6">
         <div class="dashboard-btn">
           <%= link_to index_path do %>
@@ -14,17 +19,21 @@
       </div>
       <div class="col-xs-6">
         <div class="dashboard-btn">
-          <%= image_tag "placeholder.png" %>
+          <%= link_to new_post_path do %>
+          <%= image_tag "hiddengem-icon.png" %>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="dashboard-btn">
-          <%= image_tag "placeholder.png" %>
+          <%= image_tag "savedlocation-icon.png" %>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="dashboard-btn">
-          <%= image_tag "placeholder.png" %>
+        <%= link_to user_path(current_user) do %>
+          <%= image_tag "myprofile-icon.png" %>
+        <% end %>
         </div>
       </div>
     </div>
