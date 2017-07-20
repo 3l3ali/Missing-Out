@@ -12,8 +12,8 @@
     <%= favicon_link_tag 'favicon.ico' %>
   </head>
   <body>
+    <%= render 'shared/navbar' unless should_it_show %>
 
-    <%= render 'shared/navbar' %>
     <div class="flashes">
       <%= render 'shared/flashes' %>
     </div>
