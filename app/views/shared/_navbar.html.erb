@@ -73,7 +73,7 @@
         <li>
           <% if user_signed_in? %>
       <!-- Notification -->
-            <%= link_to "#", class: "navbar-missing-out-item navbar-missing-out-link" do %>
+            <%= link_to user_path(current_user), class: "navbar-missing-out-item navbar-missing-out-link" do %>
               <div class="dropdown-badge-container">
                 <!-- <i class="fa fa-envelope-o"></i> -->
                 <!-- <div class="badge badge-blue">3</div> -->
@@ -83,11 +83,17 @@
                   <% else %>
                    <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle text-center", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
                   <% end %>
-                  <p><%= current_user.first_name %>&nbsp;<%= current_user.last_name %>
-                </p>
+                  <p>
+                    <i class="fa fa-user"></i>&nbsp;<%= current_user.first_name %>&nbsp;<%= current_user.last_name %>
+                  </p>
               </div>
             <% end %>
           <% end %>
+        </li>
+        <li>
+          <div class="navbar-missing-out-item navbar-missing-out-link">
+            <i class="fa fa-globe"></i>&nbsp;<%= link_to "Dashboard", dashboard_path %>
+          </div>
         </li>
         <li>
           <% if user_signed_in? %>
