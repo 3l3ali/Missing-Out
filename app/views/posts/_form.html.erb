@@ -1,11 +1,14 @@
 <%= simple_form_for @post do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :category, collection: Post.categories.keys %>
+  <div class="form-inputs-sign-in">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :category, collection: Post.categories.keys %>
+  </div>
   <%= f.simple_fields_for @post.location do |l| %>
-    <%= l.input :name %>
-    <%= l.input :address %>
+    <%= l.input :address,  placeholder: 'Address', input_html: {class: "big-input"}, label: false %>
   <% end %>
   <%= f.input :photos, as: :attachinary %>
-  <%= f.submit %>
+  <div class="form-actions text-center">
+    <%= f.submit, "Submit", class: 'btn btn-primary btn-width' %>
+  </div>
 <% end %>
