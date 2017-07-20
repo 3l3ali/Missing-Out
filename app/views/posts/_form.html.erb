@@ -5,10 +5,10 @@
     <%= f.input :category, collection: Post.categories.keys %>
   </div>
   <%= f.simple_fields_for @post.location do |l| %>
-    <%= l.input :address,  placeholder: 'Address', input_html: {class: "big-input"}, label: false %>
+    <%= l.input :address, placeholder: "123 458, Meguro, Tokyo", label: "Address" , input_html: {class: "big-input"}%>
   <% end %>
   <%= f.input :photos, as: :attachinary %>
   <div class="form-actions text-center">
-    <%= f.submit, "Submit", class: 'btn btn-primary btn-width' %>
+    <%= f.submit "Submit", class: 'btn btn-primary btn-width' %>
   </div>
 <% end %>

@@ -24,7 +24,6 @@ class PostsController < ApplicationController
     @post.location = Location.create(location_params)
     authorize @post
     if @post.save
-      # redirect_to new_post_location_path(@post)
       redirect_to @post
     else
       render :new
@@ -39,7 +38,7 @@ class PostsController < ApplicationController
     authorize @post
     @post.update(post_params)
     @post.location.update(location_params) if @post.location.present?
-    redirect_to root_path
+    redirect_to @post
   end
 
   def destroy       # DELETE /posts/:id
