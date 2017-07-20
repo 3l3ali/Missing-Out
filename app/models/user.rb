@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :user_followings, class_name: "Follow", foreign_key: "follower_id"
   has_many :followings, through: :user_followings, source: :followed
 
+  has_many :favourites, class_name: "Favourite", foreign_key: "user_id"
+  has_many :favourite_posts, through: :favourites, source: :post
+
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

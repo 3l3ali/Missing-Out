@@ -28,6 +28,18 @@
         <div class="place-review">
           <p><%= @post.description %></p>
         </div>
+
+
+        <div>
+          <% unless current_user.favourites.where(post: @post).exists?  %>
+          <%# if current_user.favorited?(@post) %>
+            <%= link_to "favourite", favourites_add_path(post_id: @post.id) %>
+          <% else %>
+            <%= link_to "unfavourite", favourites_remove_path(post_id: @post.id) %>
+          <% end %>
+        </div>
+
+
       </div>
       <div class="col-xs-12">
         <div class="review-header">

@@ -20,4 +20,12 @@ class PostPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def add?
+    true
+  end
+
+  def remove?
+    true
+  end
+
 end
