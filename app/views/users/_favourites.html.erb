@@ -1,0 +1,3 @@
+<% @user.favourite_posts.each do |favourite| %>
+  <%= link_to favourite.title, post_path(favourite) %><br>
+<% end %>

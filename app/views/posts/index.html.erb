@@ -10,6 +10,12 @@
   <%= link_to post.title, post_path(post) %><br>
   <%= post.description %><br>
   <%= link_to "Update", edit_post_path(post) if policy(post).edit? %><br>
-  <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} if policy(post).destroy? %><hr>
+  <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"} if policy(post).destroy? %>
+
+  <%# unless current_user.favourites.where(post: post).exists?  %>
+    <%#= link_to "favourite", favourites_add_path(post_id: post.id) %>
+  <%# else %>
+    <%#= link_to "unfavourite", favourites_remove_path(post_id: post.id) %>
+  <%# end %>
 <% end %>
 

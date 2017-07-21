@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'favourites/add'
+
+  get 'favourites/remove'
+
   get 'followings/create'
 
   get 'followings/destroy'
