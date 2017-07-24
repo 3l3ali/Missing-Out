@@ -17,6 +17,6 @@ class PagesController < ApplicationController
       marker.infowindow render_to_string(partial: "/locations/map_box", locals: { location: location })
     end
 
-    @posts = Post.all
+    @posts = Post.search(params[:search]).order(created_at: :desc)
   end
 end

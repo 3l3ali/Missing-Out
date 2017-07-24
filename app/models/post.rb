@@ -16,4 +16,12 @@ class Post < ApplicationRecord
     foods: 1,
     entertainment: 2
   }
+
+  def self.search(search)
+    if search
+      where(['title LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
 end
