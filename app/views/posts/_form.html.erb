@@ -3,10 +3,10 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :category, collection: Post.categories.keys %>
-  <%= f.simple_fields_for @post.location do |l| %>
-    <%= l.input :address, placeholder: "123 458, Meguro, Tokyo", label: "Address" , input_html: {class: "big-input"}%>
-  <% end %>
-  <%= f.input :photos, as: :attachinary %>
+    <%= f.simple_fields_for @post.location do |l| %>
+      <%= l.input :address, placeholder: "123 458, Meguro, Tokyo", label: "Address" , input_html: {class: "big-input"}%>
+    <% end %>
+    <%= f.input :photos, as: :attachinary %>
   </div>
   <div class="form-actions text-center">
     <%= f.submit "Submit", class: 'btn btn-primary btn-width' %>
