@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'favourites/add'
-
-  get 'favourites/remove'
-
-  get 'followings/create'
-
-  get 'followings/destroy'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -22,6 +15,12 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#home'
   get '/index', to: 'pages#index'
 
+  get 'favourites/index'
+  get 'favourites/add'
+  get 'favourites/remove'
+
+  get 'followings/create'
+  get 'followings/destroy'
 
   mount Attachinary::Engine => "/attachinary"
 end
