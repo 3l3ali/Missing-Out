@@ -21,4 +21,8 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def new_guide?
+    true
+  end
+
 end

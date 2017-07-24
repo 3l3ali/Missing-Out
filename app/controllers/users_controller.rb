@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :new_guide]
 
   def index
     @users = policy_scope(User).order(created_at: :desc)
     # @users = User.all
   end
+
+  def new_guide
+    authorize @user, :new_guide?
+  end
+
 
   def show
     authorize @user
@@ -14,6 +19,7 @@ class UsersController < ApplicationController
     authorize @user
     redirect_to current_user if current_user.update(user_params)
   end
+
   def destroy
     authorize @user
     @user.destroy
@@ -27,6 +33,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:age, :gender, :languages)
+      params.require(:user).permit(:age, :gender, language_ids: [])
     end
 end

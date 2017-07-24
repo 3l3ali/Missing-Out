@@ -19,8 +19,6 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :languages
 
-  accepts_nested_attributes_for :languages
-
    enum gender: {
     male: 0,
     female: 1,

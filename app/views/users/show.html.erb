@@ -24,7 +24,7 @@
 </div>
 
 <div>
-    <%= render 'shared/travel_guide' if current_user.id == @user.id %>
+    <%= link_to "Become a Guide", newg_user_path if current_user.id == @user.id %>
 </div>
 
 <!-- Follow/unfollow button -->
