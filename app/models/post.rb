@@ -16,4 +16,16 @@ class Post < ApplicationRecord
     foods: 1,
     entertainment: 2
   }
+
+  def self.search(search)
+    if search
+      where(['title LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
+  def self.categories_for_select
+    categories.to_a.unshift(["",""],["all", "all"])
+  end
 end

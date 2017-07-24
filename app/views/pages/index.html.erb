@@ -2,7 +2,6 @@
   Main | Missing Out
 <% end %>
 
-<div class="search-bar"></div>
 
 <div id="map" style="height: 200px;" ></div>
 
@@ -57,6 +56,15 @@
   <% end %>
 <% end %>
 
+<!-- <div class="search-bar">
+  <#%= render 'shared/search' %>
+</div> -->
+
+
+<div class="filter-category">
+  <%= render 'shared/filter' %>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
@@ -76,8 +84,13 @@
                 <p>Category &nbsp;:&nbsp;<%= post.category %></p>
                 <p>Distance</p>
                 <br>
-                <p><%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended this.</p>
-                <!-- <p><%#= pluralize(1, 'friend') pluralize(1, 'has') %>been here</p> -->
+                <% if post.reviews.where(recommended: true).count > 0 %>
+                  <p>has <%= pluralize(post.reviews.count, 'review') %>.</p>
+                  <p><%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended this.</p>
+                <% else %>
+                  <p>Be the first one to review this !</p>
+                <% end %>
+                <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
             </div>
             <div class="list-link">
               <%= link_to post_path(post) do %>
