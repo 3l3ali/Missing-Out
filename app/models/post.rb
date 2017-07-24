@@ -19,13 +19,13 @@ class Post < ApplicationRecord
 
   def self.search(search)
     if search
-      where(['title LIKE ?', "%#{search}%"])
+      joins(:location).where("locations.address LIKE ?", "%#{search}%")
     else
       all
     end
   end
 
   def self.categories_for_select
-    categories.to_a.unshift(["",""],["all", "all"])
+    categories.to_a.unshift(["all", "all"])
   end
 end

@@ -18,12 +18,14 @@ class PagesController < ApplicationController
     end
 
 
-    if params[:category] == "all"
-      @posts = Post.order(created_at: :desc)
-    elsif params[:category] == ""
-      @posts = Post.search(params[:search]).order(created_at: :desc)
+    if params[:category] || params[:search]
+      if params[:category] == "" || params[:category] == "all"
+        @posts = Post.search(params[:search]).order(created_at: :desc)
+      else
+        @posts = Post.search(params[:search]).where(category: params[:category]).order(created_at: :desc)
+      end
     else
-      @posts = Post.where(category: params[:category]).order(created_at: :desc)
+      @posts = Post.order(created_at: :desc)
     end
   end
 end
