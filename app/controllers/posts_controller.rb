@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index         # GET /posts
-    @posts = policy_scope(Post).order(created_at: :desc)
     # @posts = Post.all
+    @posts = policy_scope(Post).search(params[:search]).order(created_at: :desc)
   end
 
   def show          # GET /posts/:id
