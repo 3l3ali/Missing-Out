@@ -24,4 +24,8 @@ class Post < ApplicationRecord
       all
     end
   end
+
+  def self.categories_for_select
+    categories.to_a.unshift(["",""],["all", "all"])
+  end
 end
