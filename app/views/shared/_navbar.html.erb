@@ -31,8 +31,10 @@
         <div class="dropdown">
           <% if current_user.facebook_picture_url %>
             <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown" %>
-          <% else %>
+          <% elsif current_user.photo.present? %>
             <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
+          <% else %>
+            <%= image_tag "https://unsplash.it/50/50" , class: "avatar dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-missing-out-dropdown-menu">
             <li>
@@ -80,8 +82,10 @@
                 <div class="photo-in-mobile-menu">
                   <% if current_user.facebook_picture_url %>
                     <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown" %>
-                  <% else %>
+                  <% elsif current_user.photo.present? %>
                    <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle text-center", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
+                  <% else %>
+                    <%= image_tag "https://unsplash.it/50/50" , class: "avatar dropdown-toggle text-center", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
                   <% end %>
                   <p>
                     <i class="fa fa-user"></i>&nbsp;<%= current_user.first_name %>&nbsp;<%= current_user.last_name %>
