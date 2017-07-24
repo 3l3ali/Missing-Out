@@ -27,5 +27,4 @@ class PostPolicy < ApplicationPolicy
   def remove?
     true
   end
-
 end
