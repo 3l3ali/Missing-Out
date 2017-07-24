@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   def create        # POST /posts
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.location = Location.create(location_params)
+    @post.location = Location.new(location_params)
     authorize @post
     if @post.save
       redirect_to @post
