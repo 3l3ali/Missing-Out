@@ -65,7 +65,8 @@
           <div class="list-item">
             <div class="list-img">
               <% if post.photos.present? %>
-                <%= cl_image_tag post.photos.first.path, class: "post-avatar" %>
+                <%= cl_image_tag post.photos.first.path, :transformation=>[
+                  {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"}], class: "post-avatar" %>
               <% else %>
                 <%= image_tag "non-ava", class: "post-avatar" %>
               <% end %>
