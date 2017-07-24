@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def update
+    authorize @user
+    redirect_to current_user if current_user.update(user_params)
+  end
   def destroy
     authorize @user
     @user.destroy
@@ -20,5 +24,9 @@ class UsersController < ApplicationController
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:age, :gender, :languages)
     end
 end

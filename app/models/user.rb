@@ -17,6 +17,16 @@ class User < ApplicationRecord
   has_many :favourites, class_name: "Favourite", foreign_key: "user_id"
   has_many :favourite_posts, through: :favourites, source: :post
 
+  has_and_belongs_to_many :languages
+
+  accepts_nested_attributes_for :languages
+
+   enum gender: {
+    male: 0,
+    female: 1,
+    other: 2
+    }
+
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

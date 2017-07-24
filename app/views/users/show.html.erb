@@ -23,6 +23,10 @@
   <h3><%= @user.first_name %> <%= @user.last_name %></h3>
 </div>
 
+<div>
+    <%= render 'shared/travel_guide' if current_user.id == @user.id %>
+</div>
+
 <!-- Follow/unfollow button -->
 <% if current_user && (current_user.id != @user.id) %>
   <% unless @user.follower_ids.include?(current_user.id) %>

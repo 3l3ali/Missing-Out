@@ -1,0 +1,6 @@
+<%= simple_form_for current_user do |f| %>
+  <%= f.input :age %>
+  <%= f.input :gender, collection: User.genders.keys, include_blank: true %>
+  <%= f.input :languages, collection: I18nData.languages.values, include_blank: true  %>
+  <%= f.submit %>
+<% end %>
