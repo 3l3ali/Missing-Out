@@ -10,7 +10,7 @@
 <div class="profile-avatar">
 <%# if current_user.id == @user.id %>
   <% unless @user.facebook_picture_url.present? %>
-    <%= cl_image_tag @user.photo.path if @user.photo.present? %>
+    <%= cl_image_tag @user.photo.path, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"}] if @user.photo.present? %>
   <% else %>
     <%= image_tag @user.facebook_picture_url %>
   <% end %>
