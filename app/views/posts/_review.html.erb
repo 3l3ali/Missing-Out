@@ -30,6 +30,9 @@
             <i class="fa fa-trash" aria-hidden="true"></i>
           <% end if policy(review).destroy?%>
       </td>
+      <tr>
+        <%= review.created_at %>
+      </tr>
     </tr>
   </table>
   <hr>
