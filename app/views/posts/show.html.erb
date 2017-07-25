@@ -1,16 +1,35 @@
 <% content_for(:title) do %>
   <%= @post.title %> | Missing Out
 <% end %>
-
+<% content_for(:after_js) do %>
+  <script>
+    $(document).omSlider({
+      slider: $('.slider'),
+      dots: $('.dots'),
+      next:$('.btn-right'),
+      pre:$('.btn-left'),
+    });
+  </script>
+<% end %>
 <div class="show-container">
-  <div class="show-photo">
-    <% @post.photos.each do |photo| %>
-      <%= cl_image_tag photo.path %>
-    <% end %>
-  </div>
+    <div class="banner">
+      <div class="slider">
+        <ul>
+          <% @post.photos.each do |photo| %>
+            <li>
+            <div class="show-photo">
+              <%= cl_image_tag(photo.path)%>
+            </div>
+            </li>
+          <% end %>
+        </ul>
+        <div class="dots"> <a href="javascript:void(0);" rel="0" class="cur"></a> <a href="javascript:void(0);" rel="1"></a> <a href="javascript:void(0);" rel="2"></a> <a href="javascript:void(0);" rel="3"></a> </div>
+        <div class="arrow"> <a href="javascript:void(0);" class="btn-left">&lt;</a> <a href="javascript:void(0);" class="btn-right">&gt;</a> </div>
+      </div>
+    </div>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 hidden-md hidden-lg hidden-xl">
         <div class="show-box">
           <div class="show-title">
             <h2><%= @post.title %></h2>
@@ -44,9 +63,8 @@
             <%= link_to "favourite", new_user_session_path %>
           </div>
         <% end %>
-
       </div>
-      <div class="col-xs-12">
+      <div class="col-xs-12 hidden-md hidden-lg hidden-xl">
         <div class="review-header">
           <div class="review-title">
             <h4>Reviews:</h4>
@@ -73,6 +91,49 @@
       <% if @post.reviews.count > 3 %>
         <div id="loadMore" class="text-center">Load more</div>
       <% end %>
+    </div>
+  </div>
+  <div class="desktop-show  hidden-sm hidden-xs">
+    <div class="desktop-show-info">
+      <div class="desktop-show-title">
+        <h2><%= @post.title %></h2>
+        <p><%= @post.location.address %></p>
+      </div>
+      <div class="desktop-get-direction">
+        <a href="#" class="btn btn-primary">Get Directions</a>
+        <%= link_to "Update", edit_post_path(@post), class: "btn btn-primary" if policy(@post).update? %>
+        <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure ?"}, class: "btn btn-danger" if policy(@post).destroy? %>
+      </div>
+    </div>
+    <div class="desktop-show-map">
+
+    </div>
+    <div class="desktop-show-review">
+      <div class="review-header">
+          <div class="review-title">
+            <h4>Reviews:</h4>
+          </div>
+          <% if user_signed_in? %>
+            <div id="addReview" class="btn btn-primary">Add a review</div>
+          <% else %>
+            <%= link_to "Add a review", new_user_session_path, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div id="reviewForm">
+          <%= render 'reviews/form', post: @post, review: @review %>
+        </div>
+        <ul id="myReviews" class="my-reviews">
+          <li>
+            <div id="reviews">
+              <% @post.reviews.reverse.each do |review| %>
+                <%= render 'review' , review: review %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+    </div>
+    <div class="desktop-show-location">
+
     </div>
   </div>
 </div>
