@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: :true
   validates :last_name, presence: :true
+  # validates :location, presence: :true, on: :update
 
   has_many :reviews, dependent: :destroy
   has_many :posts, dependent: :destroy
@@ -16,6 +17,18 @@ class User < ApplicationRecord
 
   has_many :favourites, class_name: "Favourite", foreign_key: "user_id"
   has_many :favourite_posts, through: :favourites, source: :post
+
+  # has_and_belongs_to_many :languages
+  has_many :languages, dependent: :destroy
+  # accepts_nested_attributes_for :tasks, reject_if: :all_blank, allow_destroy: true
+
+  accepts_nested_attributes_for :languages, allow_destroy: true, reject_if: :all_blank
+
+   enum gender: {
+    male: 0,
+    female: 1,
+    other: 2
+    }
 
 
   def self.find_for_facebook_oauth(auth)
@@ -37,6 +50,10 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def invalid_guide?
+    self.age.blank? && self.gender.blank? && self.languages.blank? && self.location.blank? && self.contact.blank?
   end
 
   # Include default devise modules. Others available are:

@@ -1,0 +1,21 @@
+<%= simple_form_for current_user do |f| %>
+  <%= f.input :age %>
+  <%= f.input :gender, collection: User.genders.keys %>
+  <%= f.input :location %>
+  <%#= current_user.languages.pluck(:name) %>
+  <div id="languages">
+    <%= f.simple_fields_for :languages do |language| %>
+      <%= render 'language_fields', f: language %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'add language', f, :languages %>
+    </div>
+  </div>
+  <%= f.input :contact, label: "contact information" %>
+  <%= f.input :travel_guide, label:"On Duty" %>
+  <%#= f.input :languages, collection: I18nData.languages.values, include_blank: true  %>
+  <%#= f.association :languages, as: :select %>
+  <%#= f.association :languages, value_method: :name, include_blank: false %>
+  <%= f.submit %>
+<% end %>
