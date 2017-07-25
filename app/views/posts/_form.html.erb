@@ -1,13 +1,18 @@
 <%= simple_form_for @post do |f| %>
 <div class=" col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
   <div class="form-inputs-sign-in">
-    <%= f.input :title, label: "Name of Place", placeholder: "e.g. Lou's Pizza"%>
-    <%= f.input :description, placeholder: "Tell me what  makes it so special"%>
-    <%= f.input :category, collection: Post.categories.keys%>
-  <%= f.simple_fields_for @post.location do |l| %>
-    <%= l.input :address, placeholder: "123 456, Meguro, Tokyo", label: "Address" , input_html: {class: "big-input"}%>
-  <% end %>
-  <%= f.input :photos, as: :attachinary %>
+    <h4>Add a Gem</h4>
+    <%= f.input :title, label: "Name of Place", placeholder: "e.g. Lou's Pizza", label: false %>
+    <%= f.input :description, placeholder: "Description.. Tell me what  makes it so special", label: false %>
+    <div class="help-tip">
+      <p>250 Characters Minimum.</p>
+    </div>
+    <%= f.simple_fields_for @post.location do |l| %>
+      <%= l.input :address, placeholder: "123 456, Meguro, Tokyo", label: "Address" , input_html: {class: "big-input"}, label: false %>
+    <% end %>
+    <%= f.input :category, collection: Post.categories.keys, label: false %>
+    <h4>Add Photos Of Your Gem</h4>
+    <%= f.input :photos, as: :attachinary, label: false %>
   </div>
   <div class="form-actions text-center">
     <%= f.submit "Submit", class: 'btn btn-primary btn-width' %>

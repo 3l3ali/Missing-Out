@@ -2,9 +2,8 @@
   Main | Missing Out
 <% end %>
 
-<div class="search-bar"></div>
 
-<div id="map" style="height: 200px;" ></div>
+<div id="map" class="hidden-md hidden-lg hidden-xl" ></div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -57,9 +56,12 @@
   <% end %>
 <% end %>
 
+<div class="filter-category">
+  <%= render 'shared/filter' %>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-12 hidden-md hidden-lg hidden-xl">
       <% @posts.each do |post| %>
         <%= link_to post_path(post) do%>
           <div class="list-item">
@@ -76,8 +78,15 @@
                 <p>Category &nbsp;:&nbsp;<%= post.category %></p>
                 <p>Distance</p>
                 <br>
-                <p><%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended this.</p>
-                <!-- <p><%#= pluralize(1, 'friend') pluralize(1, 'has') %>been here</p> -->
+                <% if post.reviews.where(recommended: true).count > 0 %>
+                  <p>has <%= pluralize(post.reviews.count, 'review') %>.</p>
+                  <p><%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended this.</p>
+                <% else %>
+                  <p>Be the first one to review this !</p>
+                <% end %>
+                <% if user_signed_in? %>
+                  <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
+                <% end %>
             </div>
             <div class="list-link">
               <%= link_to post_path(post) do %>
@@ -89,5 +98,89 @@
       <% end %>
       <hr>
     </div>
+    <div class="hidden-sm hidden-xs col-md-9">
+      <% @posts.each_with_index do |post, value| %>
+        <div id="card-full-info-<%= value + 1  %>" class="card-details col-md-12 hidden">
+          <div class="card-full-img">
+            <div class="close-btn">
+              <a href="#">X</a>
+            </div>
+            <% if post.photos.present? %>
+              <%= cl_image_tag post.photos.first.path, :transformation=>[
+              {:width=>400, :height=>300,}], class: "" %>
+            <% else %>
+              <%= image_tag "non-ava", class: "post-avatar" %>
+            <% end %>
+          </div>
+          <div class="wrap small-width">
+            <ul id="box-container" class="list-inline">
+              <% post.photos.each do |photo| %>
+                <li class="box">
+                  <a href="<%=cl_image_path(photo.path)%>"  class="swipebox"  >
+                   <%= cl_image_tag photo.path %>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <%= link_to post_path(post) do%>
+            <h2><%= post.title %></h2>
+            <p>Category &nbsp;:&nbsp;<%= post.category %></p>
+            <p>Distance</p>
+            <br>
+          <% end %>
+            <%= post.description %>
+            <% if post.reviews.where(recommended: true).count > 0 %>
+              <p>has <%= pluralize(post.reviews.count, 'review') %>.</p>
+              <p><%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended this.</p>
+            <% else %>
+              <p>Be the first one to review this !</p>
+            <% end %>
+            <% if user_signed_in? %>
+              <% post.reviews.where(recommended: true).map(&:user_id).uniq.each do |id| %>
+                <% user = User.find(id) %>
+                <% if user.facebook_picture_url %>
+                  <%= image_tag user.facebook_picture_url, class: "avatar dropdown-toggle" %>
+                <% elsif user.photo.present? %>
+                  <%= cl_image_tag user.photo.path, class: "avatar dropdown-toggle"%>
+                <% else %>
+                  <%= image_tag "https://unsplash.it/50/50" , class: "avatar dropdown-toggle"%>
+                <% end %>
+              <% end %>
+              <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
+            <% end %>
+        </div>
+      <% end %>
+        <% @posts.each_with_index do |post, value| %>
+          <div class="col-md-6 card-show" id="card-holder-<%= value + 1  %>">
+            <div class="place-card">
+              <div class="card-image">
+                <% if post.photos.present? %>
+                <%= cl_image_tag post.photos.first.path, :transformation=>[
+                  {:width=>400, :height=>300, :crop=>"thumb"}], class: "post-avatar" %>
+                <% else %>
+                  <%= image_tag "non-ava", class: "post-avatar" %>
+                <% end %>
+                <div class="card-info" data-id="<%= value + 1  %>">
+                  <div class="card-title">
+                    <h4><%= post.title %></h4>
+                    <p>Category &nbsp;:&nbsp;<%= post.category %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+  $( document ).ready(function() {
+      /* Basic Gallery */
+      $( '.swipebox' ).swipebox();
+      });
+  </script>
+<% end %>

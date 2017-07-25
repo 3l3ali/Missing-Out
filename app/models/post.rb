@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   validates :photos, presence: true
   validates :title, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: {minimum: 250}
   validates :category, presence: true
 
   enum category: {
@@ -16,4 +16,16 @@ class Post < ApplicationRecord
     foods: 1,
     entertainment: 2
   }
+
+  def self.search(search)
+    if search
+      joins(:location).where("locations.address LIKE ?", "%#{search}%")
+    else
+      all
+    end
+  end
+
+  def self.categories_for_select
+    categories.to_a.unshift(["all", "all"])
+  end
 end
