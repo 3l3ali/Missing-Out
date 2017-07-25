@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Language.destroy_all
-puts "starting seed..."
-I18nData.languages.values.each do |language|
-  Language.create!(name: language)
-end
-puts "seed ended"
+# Language.destroy_all
+# puts "starting seed..."
+# I18nData.languages.values.each do |language|
+#   Language.create!(name: language)
+# end
+# puts "seed ended"

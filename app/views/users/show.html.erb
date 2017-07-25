@@ -25,14 +25,13 @@
 
 <div>
     <% if current_user.id == @user.id %>
-      <% if @user.valid_guide? %>
+      <% if @user.invalid_guide? %>
         <%= link_to "Become a Guide", newg_user_path %>
       <% else %>
         <%= link_to "Update guide info", newg_user_path %>
       <% end %>
     <% end %>
 </div>
-
 <!-- Follow/unfollow button -->
 <% if current_user && (current_user.id != @user.id) %>
   <% unless @user.follower_ids.include?(current_user.id) %>

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def new_guide
     authorize @user, :new_guide?
-    @user.languages.build
+    # @user.languages.build
   end
 
 
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def update
     authorize @user
+    # current_user.languages << Language.new(language_params)
     redirect_to current_user if current_user.update(user_params)
   end
 
@@ -38,6 +39,11 @@ class UsersController < ApplicationController
     # end
 
     def user_params
-      params.require(:user).permit(:age, :gender, languages_attributes: [:id, :name, :_destroy])
+      params.require(:user).permit(:age, :gender, :travel_guide, :location, :contact, languages_attributes: [:id, :name, :_destroy])
     end
+
+
+  # def language_params
+  #   params.require(:user).require(:language).permit(:name)
+  # end
 end
