@@ -3,12 +3,25 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
+
+@media screen and (max-width: 767px){
 .home-container{
   background-image: image-url('mobilebg.png');
+  background-position: center center;
   width: 100%;
   background-size: cover;
   height:100vh;
-
+  }
+}
+@media screen and (min-width: 767px){
+.home-container{
+  background-image: image-url('desktop-bg.png');
+  background-position: center center;
+  width: 100%;
+  background-size: cover;
+  height:100vh;
+  background-attachment: fixed;
+  }
 }
 
 .backpacker-content img {
@@ -38,7 +51,7 @@
   margin: 70px auto 0;
 }
 .backpacker-content{
-  width:75%;
+  width:20%;
   margin:40px auto;
 }
 
