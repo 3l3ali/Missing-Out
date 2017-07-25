@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :languages
 
+  accepts_nested_attributes_for :languages
+
    enum gender: {
     male: 0,
     female: 1,
@@ -45,6 +47,10 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def valid_guide?
+    self.age.blank? && self.gender.blank? && self.languages.blank?
   end
 
   # Include default devise modules. Others available are:

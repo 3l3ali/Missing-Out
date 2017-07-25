@@ -24,7 +24,13 @@
 </div>
 
 <div>
-    <%= link_to "Become a Guide", newg_user_path if current_user.id == @user.id %>
+    <% if current_user.id == @user.id %>
+      <% if @user.valid_guide? %>
+        <%= link_to "Become a Guide", newg_user_path %>
+      <% else %>
+        <%= link_to "Update guide info", newg_user_path %>
+      <% end %>
+    <% end %>
 </div>
 
 <!-- Follow/unfollow button -->

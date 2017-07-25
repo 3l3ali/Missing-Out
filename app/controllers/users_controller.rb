@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def new_guide
     authorize @user, :new_guide?
+    @user.languages.build
   end
 
 
@@ -32,7 +33,11 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    # def user_params
+    #   params.require(:user).permit(:age, :gender, language_ids: [])
+    # end
+
     def user_params
-      params.require(:user).permit(:age, :gender, language_ids: [])
+      params.require(:user).permit(:age, :gender, languages_attributes: [:id, :name, :_destroy])
     end
 end

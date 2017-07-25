@@ -1,11 +1,12 @@
 <%= simple_form_for current_user do |f| %>
   <%= f.input :age %>
-  <%= f.input :gender, collection: User.genders.keys, include_blank: true %>
-  <%#= f.simple_fields_for :languages do |l| %>
-    <%#= l.input :name, collection: I18nData.languages.values, include_blank: true %>
-  <%# end %>
+  <%= f.input :gender, collection: User.genders.keys %>
+  <%= current_user.languages.pluck(:name) %>
+  <%= f.simple_fields_for :languages do |l| %>
+    <%= l.input :name, collection: I18nData.languages.values, include_blank: true %>
+    <%#= l.association :languages, as: :select %>
+  <% end %>
   <%#= f.assocition :languages, collection: I18nData.languages.values, include_blank: true  %>
-  <%#= current_user.languages.pluck(:name) %>
-  <%= f.association :languages, as: :select, include_blank: true %>
+  <%#= f.association :languages, as: :select %>
   <%= f.submit %>
 <% end %>
