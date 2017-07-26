@@ -1,0 +1,43 @@
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map' } }, function() {
+
+    <% if @lat.nil? %>
+      showMarkers("test", "test");
+    <% else %>
+      showMarkers(<%= raw @lat %>, <%= raw @lng %>);
+    <% end %>
+
+    function showMarkers(lat,lng) {
+      if (lat == "test") {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      } else {
+        markers = handler.addMarkers([{
+          "infowindow": "Your Location",
+          "lat": lat,
+          "lng": lng,
+          "picture": ({
+            "url": "<%= image_path "blue.png" %>",
+            "width":  32,
+            "height": 32
+          })
+        }]);
+      }
+
+    handler.bounds.extendWith(markers);
+
+    handler.fitMapToBounds();
+    if (markers.length == 0) {
+      handler.getMap().setZoom(2);
+    } else if (markers.length == 1) {
+      handler.getMap().setZoom(15);
+    }
+
+    }
+
+    <% unless @lat.nil? %>
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    <% end %>
+
+});
+
+$('.posts_for_index').html("<%= j render 'posts_for_index', posts: @posts %>");

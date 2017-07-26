@@ -1,0 +1,35 @@
+<% posts.each do |post| %>
+  <%= link_to post_path(post) do%>
+    <div class="list-item">
+      <div class="list-img">
+        <% if post.photos.present? %>
+          <%= cl_image_tag post.photos.first.path, :transformation=>[
+            {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"}], class: "post-avatar" %>
+        <% else %>
+          <%= image_tag "non-ava", class: "post-avatar" %>
+        <% end %>
+      </div>
+
+
+      <div class="list-des">
+        <h4><%= post.title %></h4>
+          <p>Category &nbsp;:&nbsp;<%= post.category %></p>
+          <p>Distance: <span id="put-my-data-here"></span></p>
+          <br>
+          <% if post.reviews.where(recommended: true).count > 0 %>
+            <p>has <%= pluralize(post.reviews.count, 'review') %>.</p>
+            <p><%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended this.</p>
+          <% else %>
+            <p>Be the first one to review this !</p>
+          <% end %>
+          <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
+      </div>
+      <div class="list-link">
+        <%= link_to post_path(post) do %>
+          <i class="fa fa-arrow-right"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<hr>
