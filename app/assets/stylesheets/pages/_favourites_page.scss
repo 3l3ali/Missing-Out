@@ -8,13 +8,15 @@
     margin-left: 20px;
     padding: 15px 0 15px 15px;
   }
+
+  h4 {
+    margin-left: 10px;
+  }
 }
 
 .fav-category {
   ul {
     list-style: none;
-    padding-left: 0;
-    margin-left: -15px;
 
     li {
       font-size: 20px;
@@ -23,19 +25,27 @@
       letter-spacing: 1px;
       color: white;
 
+      i {
+        margin-top: 2px;
+      }
+
       &:hover {
         color: #B2C6FF;
+        font-size: 22px;
+        opacity: 1;
+        padding-bottom: 8px;
       }
     }
   }
 }
 
 .no-favs {
+  width: 100%;
   color: white;
   font-size: 23px;
   letter-spacing: 3px;
   opacity: 0.6;
-  padding: 20px 0;
+  padding: 20px 0 20px 60px;
 }
 
 
