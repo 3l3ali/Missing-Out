@@ -32,7 +32,7 @@
           <% if current_user.facebook_picture_url %>
             <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown" %>
           <% elsif current_user.photo.present? %>
-            <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
+            <%= cl_image_tag current_user.photo.path, :gravity=>"face", :width=>50, :height=>50, :crop=>"thumb", class: "nav-bar-avatar dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
           <% else %>
             <%= image_tag "https://unsplash.it/50/50" , class: "avatar dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
           <% end %>
