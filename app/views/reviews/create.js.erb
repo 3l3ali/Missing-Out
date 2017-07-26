@@ -3,14 +3,18 @@
 <% if @review.errors.any? %>
   // Render new review form with errors
   $('#new_review').html("<%= j render 'reviews/form', post: @post, review: @review %>");
+  $('#new_review_desktop').html("<%= j render 'reviews/form', post: @post, review: @review %>");
 <% else %>
   // Create a paragraph for the new review. But hide it.
-   $('#reviews').prepend("<%= j render 'posts/review', review: @review %>");
+  $('#reviews').prepend("<%= j render 'posts/review', review: @review %>");
+  $('#reviews_desktop').prepend("<%= j render 'posts/review', review: @review %>");
   // $('#reviews').append(new_review);
   // Show the new review with an animation!
   // new_review.slideDown();
   // new_review.toggle();
-
+  console.log(1);
   // Reset the form
   $('#new_review').html("<%= j render 'reviews/form', post: @post, review: Review.new %>");
+  $('#new_review_desktop').html("<%= j render 'reviews/form', post: @post, review: Review.new %>");
 <% end %>
+
