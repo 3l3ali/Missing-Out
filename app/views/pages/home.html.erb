@@ -9,6 +9,8 @@
         <h1 class="blue-letters">Missing</h1>
         <h1 class="white-letters">Out</h1>
       </div>
+
+      <!--                        MOBILE                          -->
       <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
         <div class="backpacker-content text-center">
           <div class="xs-gps-icon gps-icon center-icons ">
@@ -36,29 +38,35 @@
           <% end %>
         </div>
       </div>
+
+      <!--                           DESKTOP                              -->
       <div class="icons col-md-offset-1 col-sm-offset-1 col-sm-10 col-md-10">
         <div class="col-md-4 col-sm-4 hidden-xs center-icons">
           <div class="location-icon text-center">
-            <%= link_to index_path do %>
-               <%= image_tag "search-by-location.png" %>
+            <%= link_to index_path ,class: "home-desk" do %>
+              <%= image_tag "search-by-location.png" %>
               <p>Search by Address Location</p>
             <% end %>
           </div>
         </div>
         <div class="col-md-4 col-sm-4 hidden-xs">
           <div class="gps-icon center-icons text-center">
-              <%= link_to index_path do %>
-                <%= image_tag "gps.png" %>
-                <p>Search by Current Location</p>
-              <% end %>
+            <%= link_to index_path ,class: "home-desk" do %>
+              <%= image_tag "gps.png" %>
+              <p>Search by Current Location</p>
+            <% end %>
           </div>
         </div>
         <div class="col-md-4 col-sm-4 hidden-xs">
           <div class="sign-in-icon text-center center-icons">
-            <%= link_to index_path do %>
+            <%= link_to index_path ,class: "home-desk" do %>
               <%= image_tag "sign-in.png" %>
-              <p>Sign In</p>
             <% end %>
+            <div class="in-up">
+              <%= link_to "Sign in", new_user_session_path ,class: "home-desk" ,class: "home-desk"%>
+              <%= link_to "|" , '#' ,class: "pipe-desk"%>
+              <%= link_to "Sign up", new_user_registration_path ,class: "home-desk" %>
+            </div>
            </div>
         </div>
       </div>
