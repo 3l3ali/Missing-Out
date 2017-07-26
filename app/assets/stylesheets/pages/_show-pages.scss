@@ -54,3 +54,37 @@
 .full-width-banner{
   width:1680px !important;
 }
+.desktop-show-info{
+  float:left;
+  width:60%;
+  padding:0 30px;
+}
+.desktop-show-map{
+  padding-right:30px;
+  float:right;
+  width:40%;
+}
+.desktop-show-map img{
+  width:100%;
+}
+.desktop-show-review{
+  width:60%;
+  padding:0 30px;
+}
+.desktop-show-location{
+  width:40%;
+}
+.clear-float{
+  clear:both;
+  margin-top:10px;
+}
+.desktop-show-title{
+  width:50%;
+  float:left;
+}
+.desktop-show-info{
+  float:left;
+}
+.desktop-get-direction{
+  float:right;
+}

@@ -104,10 +104,15 @@
         <%= link_to "Update", edit_post_path(@post), class: "btn btn-primary" if policy(@post).update? %>
         <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure ?"}, class: "btn btn-danger" if policy(@post).destroy? %>
       </div>
+      <div class="clear-float"></div>
+      <div class="desktop-show-description">
+        <%= @post.description %>
+      </div>
     </div>
     <div class="desktop-show-map">
-
+      <%= image_tag('staticmap.png') %>
     </div>
+    <div class="clear-float"></div>
     <div class="desktop-show-review">
       <div class="review-header">
           <div class="review-title">
