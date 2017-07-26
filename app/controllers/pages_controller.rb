@@ -10,22 +10,53 @@ class PagesController < ApplicationController
 
   def index
     @locations = Location.where.not(latitude: nil, longitude: nil)
+    @posts = Post.order(created_at: :desc)
+    set_category
+    set_hash
 
-    @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
-      marker.lat location.latitude
-      marker.lng location.longitude
-      marker.infowindow render_to_string(partial: "/locations/map_box", locals: { location: location })
+
+    if params[:search_j].present?
+      @posts = Post.search(params[:search_j]).order(created_at: :desc)
+      @locations = @locations.where("address LIKE ?", "%#{params[:search_j]}%")
+      set_category
+      set_hash
+    elsif params[:lat] && params[:lng]
+      @lat = params[:lat]
+      @lng = params[:lng]
+      @locations = @locations.near([params[:lat], params[:lng]], 15)
+      @posts = Post.where(location_id: @locations.map(&:id))
+      set_category
+      set_hash
     end
 
 
-    if params[:category] || params[:search]
-      if params[:category] == "" || params[:category] == "all"
-        @posts = Post.search(params[:search]).order(created_at: :desc)
+    respond_to do |format|
+      if (params[:lat] && params[:lng]) || (params[:not_allowed]) || (params[:search_j].present?)
+        format.js
       else
-        @posts = Post.search(params[:search]).where(category: params[:category]).order(created_at: :desc)
+        format.html
       end
-    else
-      @posts = Post.order(created_at: :desc)
     end
   end
+
+
+  private
+    def set_category
+      if params[:category].present?
+        if params[:category] == "all"
+          @posts = @posts.order(created_at: :desc)
+        else
+          @posts = @posts.where(category: params[:category]).order(created_at: :desc)
+          @locations = @locations.where(id: @posts.map(&:location_id) )
+        end
+      end
+    end
+
+    def set_hash
+      @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+        marker.lat location.latitude
+        marker.lng location.longitude
+        marker.infowindow render_to_string(partial: "/locations/map_box", locals: { location: location })
+      end
+    end
 end
