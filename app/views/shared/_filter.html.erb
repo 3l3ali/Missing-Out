@@ -1,5 +1,5 @@
 <%= form_tag index_path, method: :get  do %>
-  <%= text_field_tag :search, params[:search], placeholder: "eg. Meguro, Tokyo" %>
-  <%= select_tag :category, options_for_select(Post.categories_for_select, params[:category]) %>
+  <%= text_field_tag :search, params[:search], placeholder: "Location: eg. Meguro, Tokyo", class: "text-field-filter" %>
+  <%= select_tag :category, options_for_select(Post.categories_for_select, params[:category]), class: "category-filter" %>
   <%= submit_tag "Search" %>
 <% end %>

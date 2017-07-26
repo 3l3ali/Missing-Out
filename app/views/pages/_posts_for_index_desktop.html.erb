@@ -1,7 +1,7 @@
 
 <% posts.each_with_index do |post, value| %>
   <%= link_to post_path(post) do %>
-    <div class="col-md-6 card-show" id="card-holder-<%= value + 1  %>">
+    <div class="col-md-4 card-show" id="card-holder-<%= value + 1  %>">
       <div class="place-card">
         <div class="card-image">
           <% if post.photos.present? %>
@@ -14,6 +14,17 @@
             <div class="card-title">
               <h4><%= post.title %></h4>
               <p>Category &nbsp;:&nbsp;<%= post.category %></p>
+            </div>
+            <div class="card-rec">
+              <% if post.reviews.where(recommended: true).count > 0 %>
+                <p>has <%= pluralize(post.reviews.count, 'review') %>.</p>
+                <p><%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended this.</p>
+              <% else %>
+                <p>Be the first one to review this !</p>
+              <% end %>
+              <% if user_signed_in? %>
+                <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
+              <% end %>
             </div>
           </div>
         </div>

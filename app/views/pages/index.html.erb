@@ -3,7 +3,7 @@
 <% end %>
 
 
-<div id="map" class="hidden-md hidden-lg hidden-xl" ></div>
+<div id="map" class="" ></div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -48,9 +48,16 @@
     src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>&callback=initMap">
   </script>
 <% end %>
-
-<div class="filter-category">
-  <%= render 'shared/filter' %>
+<div class="search-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="filter-category">
+          <%= render 'shared/filter' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
@@ -62,7 +69,7 @@
       </div>
     </div>
 
-    <div class="hidden-sm hidden-xs col-md-9">
+    <div class="hidden-sm hidden-xs col-md-12">
       <div class="posts_for_index_desktop">
         <%= render "posts_for_index_desktop", posts: @posts %>
       </div>

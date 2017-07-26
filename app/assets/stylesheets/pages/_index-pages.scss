@@ -11,8 +11,18 @@
   }
 }
 
-
-
+.search-container{
+  padding:10px 0;
+  background: #0092CA;
+}
+.text-field-filter{
+  padding:5px 10px;
+  width:40%;
+}
+.category-filter{
+  padding:200px 10px;
+  width:20%;
+}
 .list{
   display: flex;
 }
@@ -61,15 +71,18 @@
 
 }
 .place-card{
-  margin-bottom:20px;
+  margin:20px 0;
+  border-radius:5px;
 }
 .card-image{
   position:relative;
+  border-radius:5px;
 
 }
 .card-image img {
   width:100%;
   object-fit: cover;
+  border-radius:5px;
 }
 .card-info{
   position:absolute;
@@ -80,14 +93,20 @@
 }
 .card-info:hover{
   opacity:1.0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
 }
 .card-title{
+  position:absolute;
+  top:10px;
+  left:20px;
+  color:#fff;
+
+}
+.card-rec{
   position:absolute;
   bottom:10px;
   left:20px;
   color:#fff;
-
 }
 .card-details-img{
   width:100%;
