@@ -1,25 +1,85 @@
-.dashboard-container {
+.dashboard-container-mobile {
   background-image: image-url("mobilebg.png");
-  height: 100vh;
+  height: 100%;
 }
-.dashboard-btn{
+.dashboard-btn-mobile {
   background: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
-  margin:10px;
+  margin-bottom:10px;
+  height: 170px;
+  width: 100%;
+  img {
+    height: 100%;
+    width: 200px;
+    margin-left: 23%;
+  }
 }
-.dashboard-btn:hover{
+
+.dashboard-btn-mobile:hover{
   background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+.dashboard-header-mobile{
+  color:white;
+  margin-top: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.dashboard-container-desktop {
+  background-image: image-url("desktop-bg.png");
+  height: 100vh;
+}
+.dashboard-btn-desktop {
+  background: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
-  margin:10px;
-}
-.dashboard-btn img{
+  margin-bottom:10px;
+  margin-right: 10px;
+  height: 300px;
   width: 100%;
-  margin: 0 auto;
-
+  img {
+    height: 100%;
+    width: 300px;
+    margin-left: 10%;
+  }
 }
-.dashboard-header{
+
+.dashboard-btn-desktop-1 {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom:10px;
+  height: 300px;
+  width: 100%;
+  img {
+    height: 100%;
+    width: 300px;
+    margin-left: 35%;
+  }
+}
+
+.dashboard-btn-desktop:hover{
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+.dashboard-btn-desktop-1:hover{
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+.dashboard-header-desktop{
   color:white;
   margin-top: 60px;
 }

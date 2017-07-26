@@ -11,9 +11,9 @@
       </div>
       <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
         <div class="backpacker-content text-center">
-          <div class="gps-icon center-icons">
+          <div class="xs-gps-icon gps-icon center-icons ">
             <%= link_to index_path do %>
-              <%= image_tag "gps.png" %>
+              <%= image_tag "gps.png", class: 'img-gps' %>
               <p>Search by Current Location</p>
             <% end %>
           </div>
@@ -40,7 +40,7 @@
         <div class="col-md-4 col-sm-4 hidden-xs center-icons">
           <div class="location-icon text-center">
             <%= link_to index_path do %>
-              # <%= image_tag "search-by-location.png" %>
+               <%= image_tag "search-by-location.png" %>
               <p>Search by Address Location</p>
             <% end %>
           </div>

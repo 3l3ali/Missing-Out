@@ -2,37 +2,37 @@
   Dashboard | Missing Out
 <% end %>
 
-<div class="dashboard-container">
+<div class="dashboard-container-mobile hidden-sm hidden-md hidden-lg hidden-xl">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div class="dashboard-header">
+        <div class="dashboard-header-mobile">
           <h2>Dashboard</h2>
         </div>
       </div>
-      <div class="col-xs-6">
-        <div class="dashboard-btn">
+      <div class="col-xs-12">
+        <div class="dashboard-btn-mobile">
           <%= link_to index_path do %>
-            <%= image_tag "gps.png" %>
+            <%= image_tag "gps-dash.png" %>
           <% end %>
         </div>
       </div>
-      <div class="col-xs-6">
-        <div class="dashboard-btn">
+      <div class="col-xs-12">
+        <div class="dashboard-btn-mobile">
           <%= link_to new_post_path do %>
             <%= image_tag "hiddengem-icon.png" %>
           <% end %>
         </div>
       </div>
-      <div class="col-xs-6">
-        <div class="dashboard-btn">
+      <div class="col-xs-12">
+        <div class="dashboard-btn-mobile">
           <%= link_to favourites_index_path do %>
             <%= image_tag "savedlocation-icon.png" %>
           <% end %>
         </div>
       </div>
-      <div class="col-xs-6">
-        <div class="dashboard-btn">
+      <div class="col-xs-12">
+        <div class="dashboard-btn-mobile">
         <%= link_to user_path(current_user) do %>
           <%= image_tag "myprofile-icon.png" %>
         <% end %>
@@ -41,3 +41,46 @@
     </div>
   </div>
 </div>
+
+
+<div class="dashboard-container-desktop hidden-xs">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="dashboard-header-desktop">
+          <h2>Dashboard</h2>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="dashboard-btn-desktop-1">
+          <%= link_to index_path do %>
+            <%= image_tag "gps-dash.png" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="dashboard-btn-desktop">
+          <%= link_to new_post_path do %>
+            <%= image_tag "hiddengem-icon.png" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="dashboard-btn-desktop">
+          <%= link_to favourites_index_path do %>
+            <%= image_tag "savedlocation-icon.png" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="dashboard-btn-desktop">
+        <%= link_to user_path(current_user) do %>
+          <%= image_tag "myprofile-icon.png" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

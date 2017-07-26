@@ -26,6 +26,11 @@ class Post < ApplicationRecord
   end
 
   def self.categories_for_select
-    categories.to_a.unshift(["all", "all"])
+    {
+      "all": "all",
+      "activities": "activities",
+      "foods": "foods",
+      "entertainment": "entertainment"
+    }
   end
 end
