@@ -1,0 +1,27 @@
+.fav-category {
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      color: #194564;
+      font-size: 20px;
+      font-weight: lighter;
+
+      &:hover {
+        color: #3B59B0;
+      }
+    }
+  }
+}
+
+.no-favs {
+  color: #D3D2D2;
+  opacity: 0.4;
+}
+
+
+.loc-mark {
+  opacity: 0.6;
+  font-size: 18px;
+}
