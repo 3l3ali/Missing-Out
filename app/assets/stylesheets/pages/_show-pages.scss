@@ -54,3 +54,43 @@
 .full-width-banner{
   width:1680px !important;
 }
+
+
+
+
+
+
+.empty-heart {
+  color: gray;
+
+  &:hover {
+    color: red;
+    text-decoration: none;
+  }
+}
+
+.filled-heart {
+  color:red;
+
+  &:hover {
+    color: gray;
+    text-decoration: none;
+  }
+}
+
+
+.trash-delete {
+  color: gray;
+
+  &:hover {
+    color: #5E5E5E;
+  }
+}
+
+.pen-update  {
+  color: gray;
+
+  &:hover {
+    color: #5E5E5E;
+  }
+}
