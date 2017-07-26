@@ -23,7 +23,11 @@
                 <p>Be the first one to review this !</p>
               <% end %>
               <% if user_signed_in? %>
-                <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
+                <% if post.reviews.where(user_id: current_user.following_ids).count > 0 %>
+                  <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
+                <% else %>
+                  <p>None of your friends have reviewed this.</p>
+                <% end %>
               <% end %>
             </div>
           </div>
