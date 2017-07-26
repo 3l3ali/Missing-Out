@@ -1,3 +1,16 @@
+@media screen and (max-width: 768px){
+  .desktop-show-review{
+    width:100%;
+    padding:0 30px;
+  }
+}
+@media screen and (min-width: 768px){
+  .desktop-show-review{
+    width:60%;
+    padding:0 30px;
+  }
+}
+
 .show-title h2{
   line-height:14px;
   font-size:24px;
@@ -67,10 +80,7 @@
 .desktop-show-map img{
   width:100%;
 }
-.desktop-show-review{
-  width:60%;
-  padding:0 30px;
-}
+
 .desktop-show-location{
   width:40%;
 }
@@ -87,4 +97,7 @@
 }
 .desktop-get-direction{
   float:right;
+}
+.review-header{
+  margin: 10px 0;
 }
