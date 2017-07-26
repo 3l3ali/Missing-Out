@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170725080101) do
     t.string   "photo"
     t.boolean  "travel_guide"
     t.integer  "age"
+    t.integer  "gender"
     t.text     "contact"
     t.string   "location"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
