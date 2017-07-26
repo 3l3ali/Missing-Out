@@ -106,7 +106,27 @@
       </div>
     </div>
     <div class="desktop-show-map">
-
+      <div id="map"></div>
+      <!-- Include Google Maps JS library. You should use your *own* key -->
+      <script src="https://maps.google.com/maps/api/js?key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"></script>
+      <%= content_for(:after_js) do %>
+          <script type="text/javascript">
+            $(document).on('ready', function() {
+              var handler = Gmaps.build('Google', { markers: { clusterer: undefined }});
+              handler.buildMap({ internal: { id: 'map' } }, function(){
+                markers = handler.addMarkers([
+                  {
+                    "lat": <%= @post.location.latitude %>,
+                    "lng": <%= @post.location.longitude %>,
+                    "infowindow": "<h1>Aix - Marseille</h1>"
+                  }
+                ]);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+              });
+            })
+          </script>
+      <% end %>
     </div>
     <div class="desktop-show-review">
       <div class="review-header">
@@ -132,11 +152,9 @@
           </li>
         </ul>
     </div>
-    <div class="desktop-show-location">
 
+    <div class="desktop-show-location">
     </div>
+
   </div>
 </div>
-
-
-

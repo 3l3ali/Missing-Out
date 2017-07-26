@@ -4,7 +4,8 @@ class User < ApplicationRecord
 
   validates :first_name, presence: :true
   validates :last_name, presence: :true
-  # validates :location, presence: :true, on: :update
+  validates :location, presence: :true, on: :update
+  validates :contact, presence: :true, on: :update
 
   has_many :reviews, dependent: :destroy
   has_many :posts, dependent: :destroy
