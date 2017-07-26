@@ -1,3 +1,18 @@
-<% @user.favourite_posts.each do |favourite| %>
-  <%= link_to favourite.title, post_path(favourite) %><br>
-<% end %>
+<table>
+  <% @user.favourite_posts.each do |favourite| %>
+    <tr>
+      <td width="30%">
+        <%= link_to favourite.title, post_path(favourite) %><br>
+      </td>
+      <td width="30%">
+        <% if current_user %>
+            <% unless current_user.favourites.where(post: favourite).exists?  %>
+              <%= link_to "favourite", favourites_add_path(post_id: favourite.id), class:"btn btn-danger" %>
+            <% else %>
+              <%= link_to "unfavourite", favourites_remove_path(post_id: favourite.id), class:"btn btn-danger"%>
+            <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

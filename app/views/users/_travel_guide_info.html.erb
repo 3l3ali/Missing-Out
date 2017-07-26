@@ -1,13 +1,13 @@
 <% if @user.travel_guide? %>
   <ul>
     <li>
-      <h2>location: <%= @user.location %></h2>
+      <h2>location: </h2><h2><small><%= @user.location %></small></h2>
     </li>
     <li>
-      <h2>Age: <%= @user.age %></h2>
+      <h2>Age: </h2><h2><small><%= @user.age %></small></h2>
     </li>
     <li>
-      <h2>gender: <%= @user.gender %>
+      <h2>gender: </h2><h2><small><%= @user.gender %></small></h2>
     </li>
     <li>
       <h2>Languages i can speak:</h2>
@@ -18,7 +18,7 @@
       <% end %>
     </li>
     <li>
-      <h2>Contact me:</h2><%= @user.contact %>
+      <h2>Contact me:</h2><h2><small><%= @user.contact %></small></h2>
     </li>
   </ul>
 <% elsif @user.travel_guide.nil? %>
@@ -30,6 +30,6 @@
 <% if current_user.id == @user.id && !current_user.invalid_guide? %>
   <%= simple_form_for current_user do |f| %>
     <%= f.input :travel_guide, label: "Available" %>
-    <%= f.submit %>
+    <%= f.submit "submit", class:"btn btn-info"%>
   <% end %>
 <% end %>

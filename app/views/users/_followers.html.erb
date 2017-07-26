@@ -1,10 +1,29 @@
-<% @user.followers.each do |follower| %>
- <!--  <div>
-    <#% unless following.facebook_picture_url.present? %>
-      <%#= cl_image_tag following.photo.path if following.photo.present? %>
-    <%# else %>
-      <%#= image_tag following.facebook_picture_url %>
-    <%# end %>
-  </div> -->
-  <%= link_to follower.first_name, user_path(follower) %><br>
-<% end %>
+<table>
+  <% @user.followers.each do |follower| %>
+    <tr>
+      <td width="30%">
+        <div>
+          <% unless follower.facebook_picture_url.present? %>
+            <%= (cl_image_tag follower.photo, class:"avatar-bordered") if follower.photo.present? %>
+          <% else %>
+            <%= image_tag follower.facebook_picture_url, class:"avatar-bordered" %>
+          <% end %>
+        </div>
+      </td>
+
+      <td width="30%">
+        <%= link_to follower.first_name, user_path(follower) %>
+      </td>
+      <% if current_user.id == @user.id %>
+        <td width="30%">
+            <% unless current_user.following_ids.include?(follower.id) %>
+              <%= link_to "Follow", followings_create_path(user_id: follower.id), class:"btn btn-success" %>
+              <% else %>
+              <%= link_to "Unfollow", followings_destroy_path(user_id: follower.id), data: {confirm: "Are you sure you want to unfollow #{follower.first_name}?"}  , class:"btn btn-warning following" %>
+            <% end %>
+        </td>
+
+      <% end %>
+   </tr>
+  <% end %>
+</table>
