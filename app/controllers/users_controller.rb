@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     authorize @user, :new_guide?
   end
 
-
   def show
     authorize @user
   end
