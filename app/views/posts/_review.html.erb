@@ -5,7 +5,7 @@
         <%= link_to user_path(review.user) do %>
           <div class="review-avatar">
             <% unless review.user.facebook_picture_url.present? %>
-              <%= cl_image_tag review.user.photo.path if review.user.photo.present? %>
+              <%= cl_image_tag review.user.photo.path, :gravity=>"face", :width=>150, :height=>150, :crop=>"thumb" if review.user.photo.present? %>
             <% else %>
               <%= image_tag review.user.facebook_picture_url %>
             <% end %>
