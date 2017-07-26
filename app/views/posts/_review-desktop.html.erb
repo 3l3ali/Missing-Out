@@ -31,7 +31,7 @@
           <% end if policy(review).destroy?%>
       </td>
       <tr>
-        <%= review.created_at %>
+        <%= review.created_at.strftime('%e/%b/%Y') %>
       </tr>
     </tr>
   </table>
