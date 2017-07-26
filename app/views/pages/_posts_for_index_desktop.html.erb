@@ -1,0 +1,23 @@
+
+<% posts.each_with_index do |post, value| %>
+  <%= link_to post_path(post) do %>
+    <div class="col-md-6 card-show" id="card-holder-<%= value + 1  %>">
+      <div class="place-card">
+        <div class="card-image">
+          <% if post.photos.present? %>
+          <%= cl_image_tag post.photos.first.path, :transformation=>[
+            {:width=>400, :height=>300, :crop=>"thumb"}], class: "post-avatar" %>
+          <% else %>
+            <%= image_tag "non-ava", class: "post-avatar" %>
+          <% end %>
+          <div class="card-info" data-id="<%= value + 1  %>">
+            <div class="card-title">
+              <h4><%= post.title %></h4>
+              <p>Category &nbsp;:&nbsp;<%= post.category %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

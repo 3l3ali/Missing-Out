@@ -32,6 +32,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'omniauth-facebook'
 gem "pundit"
+gem 'language-select'
+gem 'i18n_data'
+gem "cocoon"
 
 group :development, :test do
   gem 'better_errors'

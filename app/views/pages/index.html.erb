@@ -2,7 +2,8 @@
   Main | Missing Out
 <% end %>
 
-<div id="map" style="height: 200px;" ></div>
+
+<div id="map" class="hidden-md hidden-lg hidden-xl" ></div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -54,11 +55,19 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+
+    <div class="col-xs-12 col-sm-12 hidden-md hidden-lg hidden-xl">
       <div class="posts_for_index">
         <%= render "posts_for_index", posts: @posts %>
       </div>
     </div>
+
+    <div class="hidden-sm hidden-xs col-md-9">
+      <div class="posts_for_index_desktop">
+        <%= render "posts_for_index_desktop", posts: @posts %>
+      </div>
+    </div>
+
   </div>
 </div>
 

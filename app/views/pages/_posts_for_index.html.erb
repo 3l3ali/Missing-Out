@@ -9,12 +9,10 @@
           <%= image_tag "non-ava", class: "post-avatar" %>
         <% end %>
       </div>
-
-
       <div class="list-des">
         <h4><%= post.title %></h4>
           <p>Category &nbsp;:&nbsp;<%= post.category %></p>
-          <p>Distance: <span id="put-my-data-here"></span></p>
+          <p>Distance</p>
           <br>
           <% if post.reviews.where(recommended: true).count > 0 %>
             <p>has <%= pluralize(post.reviews.count, 'review') %>.</p>
@@ -22,7 +20,9 @@
           <% else %>
             <p>Be the first one to review this !</p>
           <% end %>
-          <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
+          <% if user_signed_in? %>
+            <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
+          <% end %>
       </div>
       <div class="list-link">
         <%= link_to post_path(post) do %>
