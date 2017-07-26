@@ -23,10 +23,10 @@
         </div>
       </td>
       <td width="5%">
-          <%= link_to edit_post_review_path(review.post, review) do %>
+          <%= link_to edit_post_review_path(review.post, review), class: "pen-update" do %>
             <i class="fa fa-pencil" aria-hidden="true"></i>
           <% end if policy(review).edit? %>
-          <%= link_to post_review_path(review.post, review), method: :delete,remote: true, data: {confirm: "Are you sure?"} do %>
+          <%= link_to post_review_path(review.post, review), method: :delete,remote: true, data: {confirm: "Are you sure?"}, class: "trash-delete" do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
           <% end if policy(review).destroy?%>
       </td>
