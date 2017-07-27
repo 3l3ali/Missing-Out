@@ -23,7 +23,10 @@ class PagesController < ApplicationController
     elsif params[:lat] && params[:lng]
       @lat = params[:lat]
       @lng = params[:lng]
-      @locations = @locations.near([params[:lat], params[:lng]], 15)
+      @bounds = params[:bounds].to_i
+      @bounds = 1 if @bounds.zero?
+
+      @locations = @locations.near([params[:lat], params[:lng]], @bounds)
       @posts = Post.where(location_id: @locations.map(&:id))
       set_category
       set_hash

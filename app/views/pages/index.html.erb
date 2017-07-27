@@ -22,7 +22,8 @@
                 "lat": position["coords"]["latitude"],
                 "lng": position["coords"]["longitude"],
                 "search_j": <%= raw params[:search].to_json %>,
-                "category": "<%= raw params[:category] %>"
+                "category": "<%= raw params[:category] %>",
+                "bounds": "<%= raw params[:bounds] %>"
               },
               success:function(data) {
               }
