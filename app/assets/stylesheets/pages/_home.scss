@@ -11,6 +11,24 @@
     width: 100%;
     background-size: cover;
   }
+  .missing-out {
+  width: 200px ;
+  margin: 20px auto 0;
+  }
+  .blue-letters{
+    color:$blue;
+    line-height: 10px;
+    text-align: left;
+    font-weight: 900;
+    font-size: 55px
+
+  }
+  .white-letters{
+    color:white;
+    text-align: right;
+    font-weight: 900;
+    font-size: 55px
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px){
@@ -37,6 +55,24 @@
     width:60%;
     padding:40px 5px 30px 5px;
   }
+  .missing-out {
+    width: 300px ;
+    margin: 100px auto 0;
+  }
+    .blue-letters{
+      color:$blue;
+      line-height: 10px;
+      text-align: left;
+      font-weight: 900;
+      font-size: 85px
+
+    }
+    .white-letters{
+      color:white;
+      text-align: right;
+      font-weight: 900;
+      font-size: 85px
+    }
 }
 @media screen and (min-width: 992px){
 .home-container{
@@ -76,29 +112,6 @@
 }
 
 
-.blue-letters{
-  color:$blue;
-  line-height: 10px;
-  text-align: left;
-  font-weight: 900;
-  font-size: 85px
-
-}
-.white-letters{
-  color:white;
-  text-align: right;
-  font-weight: 900;
-  font-size: 85px
-}
-
-//   font-size: 130%;
-// }
-.missing-out {
-  width: 300px ;
-  margin: 100px auto 0;
-  padding: 100px auto 0;
-  // font-size: 200%;
-}
 .backpacker-content{
   width:75%;
   margin:0px auto;
@@ -127,12 +140,11 @@
   a {
     color: white;
   }
-}
  a:hover {
     text-decoration: none;
-    color:white;
+    color:#0092CA;
   }
-
+}
 #sign-in-out {
   color: white;
 
@@ -218,9 +230,7 @@
 .location-icon:hover {
   padding: 0;
   }
-.gps-icon:hover {
-  padding: 0;
-}
+
 .sign-in-icon:hover {
   padding:0;
 

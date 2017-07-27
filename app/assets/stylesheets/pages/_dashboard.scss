@@ -7,13 +7,24 @@
   padding: 10px;
   border-radius: 5px;
   margin-bottom:10px;
-  height: 170px;
   width: 100%;
   img {
-    height: 100%;
-    width: 200px;
-    margin-left: 23%;
+    width: 100%;
   }
+}
+.dashboard-btn-mobile-gps {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom:10px;
+  width: 100%;
+  img {
+    width: 50%;
+  }
+}
+.dashboard-btn-mobile-gps:hover{
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
 }
 
 .dashboard-btn-mobile:hover{
@@ -23,9 +34,12 @@
 
 .dashboard-header-mobile{
   color:white;
-  margin-top: 60px;
+  margin-top: 30px;
 }
-
+.text-center a>p{
+  color:white;
+  text-decoration: none;
+}
 
 
 
@@ -97,4 +111,7 @@
 .dashboard-btn-desktop-2:hover{
   background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
+}
+.dashboard-btn-center{
+  margin: 0 auto;
 }
