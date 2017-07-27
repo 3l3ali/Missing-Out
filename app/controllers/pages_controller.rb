@@ -39,6 +39,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def travel_guide
+    @users= User.where(travel_guide: true)
+  end
+
 
   private
     def set_category

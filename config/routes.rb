@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
   get '/home', to: 'pages#home'
   get '/index', to: 'pages#index'
+  get '/guide', to: 'pages#travel_guide'
 
   get 'favourites/index'
   get 'favourites/add'

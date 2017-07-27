@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <table>
+        <% @users.each do |guide| %>
+          <tr>
+            <td width="30%">
+                <% unless guide.facebook_picture_url.present? %>
+                  <%= (cl_image_tag guide.photo, class:"img-circle") if guide.photo.present? %>
+                <% else %>
+                  <%= image_tag guide.facebook_picture_url, class:"img-circle" %>
+                <% end %>
+            </td>
+            <td width="30%">
+              <h3><%= link_to "#{guide.first_name} #{guide.last_name}" , guide %></h3>
+            </td>
+            <td width="30%">
+              <h3>guide service location:</h3><h3><small><%= guide.location %></small></h3>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
