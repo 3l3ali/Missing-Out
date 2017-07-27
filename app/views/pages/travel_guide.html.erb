@@ -37,8 +37,8 @@
       <% @users.each do |guide| %>
         <div class="col-xs-12 col-sm-4">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(https://unsplash.it/200/200); ">
-              <div class="card-category"><h3><%= "#{guide.first_name} #{guide.last_name}" %></h3></div>
-              <div class="card-description">
+              <div class="card-description"><h3><%= "#{guide.first_name} #{guide.last_name}" %></h3></div>
+              <div class="card-category">
                 <h4><%= guide.location %></h4>
                 <p>
                 <% guide.languages.pluck(:name).each do |language| %>
@@ -49,7 +49,7 @@
                 <% unless guide.facebook_picture_url.present? %>
                   <%= (cl_image_tag guide.photo, class:"img-circle") if guide.photo.present? %>
                 <% else %>
-                  <%= image_tag guide.facebook_picture_url, class:"avatar" %>
+                  <%= image_tag guide.facebook_picture_url, class:"avatar card-user" %>
                 <% end %>
                 <%#= link_to user_path(guide), class:"card-link" %>
               <a class="card-link" href="<%= user_path(guide) %>" ></a>
