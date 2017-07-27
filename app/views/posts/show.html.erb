@@ -176,11 +176,11 @@
               <% end %>
             </div>
           </li>
+          <% if @post.reviews.count > 3 %>
+            <div id="loadMore" class="text-center">Load More</div>
+          <% end %>
         </ul>
       </div>
-      <% if @post.reviews.count > 3 %>
-        <div id="loadMore" class="text-center">Load More</div>
-      <% end %>
       </div>
     <div class="desktop-show-location"></div>
   </div>
