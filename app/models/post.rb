@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   validates :photos, presence: true
   validates :title, presence: true
-  validates :description, presence: true, length: {minimum: 250}
+  validates :description, presence: true, length: {minimum: 100}
   validates :category, presence: true
 
   enum category: {

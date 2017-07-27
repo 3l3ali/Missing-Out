@@ -19,12 +19,16 @@
       </div>
     </div>
     <div class="post-review-stat">
-      <% if post.reviews.where(recommended: true).count > 0 %>
-        <%= pluralize(post.reviews.count, 'review') %> | <%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended |
+      <% unless post.reviews.count.zero? %>
+        <%= pluralize(post.reviews.count, 'review') %> |
+      <% else %>
+        Be the first one to review ! |
       <% end %>
 
-      <% if post.reviews.count.zero? %>
-        <p>Be the first one to review this ! |</p>
+      <% if post.reviews.where(recommended: true).count > 0 %>
+        <%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended |
+      <% else %>
+        0 recommened |
       <% end %>
 
       <% if user_signed_in? %>
