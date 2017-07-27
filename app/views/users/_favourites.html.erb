@@ -4,15 +4,19 @@
       <table class="favourite-table">
         <% @user.favourite_posts.each do |favourite| %>
           <tr>
-            <td width="30%">
+            <td width="100%">
               <%= link_to favourite.title, post_path(favourite) %><br>
             </td>
-            <td width="30%">
+            <td width="90%">
               <% if current_user %>
                   <% unless current_user.favourites.where(post: favourite).exists?  %>
-                    <%= link_to "favourite", favourites_add_path(post_id: favourite.id), class:"clean-look-btn-red" %>
+                    <%= link_to favourites_add_path(post_id: favourite.id),class: "empty-heart" do %>
+                      <i class="fa fa-heart-o"" aria-hidden="true"></i>
+                    <% end %>
                   <% else %>
-                    <%= link_to "unfavourite", favourites_remove_path(post_id: favourite.id), class:"clean-look-btn-red" %>
+                    <%= link_to favourites_remove_path(post_id: favourite.id),class: "filled-heart" do %>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                    <% end %>
                   <% end %>
               <% end %>
             </td>

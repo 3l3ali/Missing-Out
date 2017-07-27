@@ -2,44 +2,54 @@
   Profile | Missing Out
 <% end %>
 
-<%# if @user.photo? %>
-  <%#= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
-<%# end %>
+<div class="profile-wrapper">
 
-<!-- User avatar  -->
-<div class="profile-avatar">
-<%# if current_user.id == @user.id %>
-  <% unless @user.facebook_picture_url.present? %>
-    <%= cl_image_tag @user.photo.path, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"}] if @user.photo.present? %>
-  <% else %>
-    <%= image_tag @user.facebook_picture_url %>
-  <% end %>
-<%# end %>
-</div>
-<!-- edit profile link -->
-<div class="edit-profile">
-  <%= link_to "Edit Profile", edit_user_registration_path if current_user.id == @user.id %>
-<!-- user first name -->
-  <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-</div>
+  <!-- User avatar  -->
+  <div class="profile-avatar  profile-pic">
+    <% unless @user.facebook_picture_url.present? %>
+      <%= cl_image_tag @user.photo.path, :transformation=>[{:width=>120, :height=>120, :gravity=>"face", :radius=>"max", :crop=>"crop"}] if @user.photo.present? %>
+    <% else %>
+      <%= image_tag @user.facebook_picture_url %>
+    <% end %>
 
-<div>
-    <% if current_user.id == @user.id %>
-      <% if @user.invalid_guide? %>
-        <%= link_to "Become a Guide", newg_user_path %>
+
+  </div>
+
+  <div class="profile-name">
+    <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+  </div>
+
+
+  <!-- edit profile link -->
+  <div class="profile-edit">
+    <%= link_to edit_user_registration_path do %>
+      <i class="fa fa-cog" aria-hidden="true"></i>
+    <% end if current_user.id == @user.id %>
+  </div>
+  <!-- user first name -->
+
+  <div class="profile-guide">
+      <% if current_user.id == @user.id %>
+        <% if @user.invalid_guide? %>
+          <%= link_to "Become a Guide", newg_user_path, class: "clean-look-btn-green" %>
+        <% else %>
+          <%= link_to "Update guide info", newg_user_path, class: "clean-look-btn" %>
+        <% end %>
+      <% end %>
+  </div>
+
+
+  <!-- Follow/unfollow button -->
+  <div class="profile-follow">
+    <% if current_user && (current_user.id != @user.id) %>
+      <% unless @user.follower_ids.include?(current_user.id) %>
+        <%= link_to "Follow", followings_create_path(user_id: @user.id), class: "clean-look-btn" %>
       <% else %>
-        <%= link_to "Update guide info", newg_user_path %>
+        <%= link_to "Unfollow", followings_destroy_path(user_id: @user.id), class: "clean-look-btn-red" %>
       <% end %>
     <% end %>
+  </div>
 </div>
-<!-- Follow/unfollow button -->
-<% if current_user && (current_user.id != @user.id) %>
-  <% unless @user.follower_ids.include?(current_user.id) %>
-    <%= link_to "Follow", followings_create_path(user_id: @user.id) %>
-  <% else %>
-    <%= link_to "Unfollow", followings_destroy_path(user_id: @user.id) %>
-  <% end %>
-<% end %>
 
 
 <!-- follwings/followers tabs -->
@@ -49,7 +59,7 @@
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#following" aria-controls="following" role="tab" data-toggle="tab">Following</a></li>
       <li role="presentation"><a href="#followers" aria-controls="followers" role="tab" data-toggle="tab">Followers</a></li>
-      <li role="presentation"><a href="#favourites" aria-controls="favourites" role="tab" data-toggle="tab">Favourites</a></li>
+      <li role="presentation"><a href="#favourites" aria-controls="favourites" role="tab" data-toggle="tab">Favorites</a></li>
       <%# unless @user.invalid_guide? %>
       <li role="presentation"><a href="#travel_guide" aria-controls="travel_guide" role="tab" data-toggle="tab">Guide</a></li>
       <%# end %>
