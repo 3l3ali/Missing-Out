@@ -40,7 +40,18 @@ class PagesController < ApplicationController
   end
 
   def travel_guide
-    @users= User.where(travel_guide: true)
+    if params[:language].blank?
+      if params[:place].present?
+        @users = User.where(travel_guide: true)
+        @users = @users.where("location LIKE ?", "%#{params[:place]}%")
+      else
+        @users = User.where(travel_guide: true)
+      end
+    else
+      @users = User.where(travel_guide: true)
+      @users = @users.where("location LIKE ?", "%#{params[:place]}%")
+      @users = @users.select { |user| user.languages.pluck(:name).include?(params[:language]) }
+    end
   end
 
 

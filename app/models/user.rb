@@ -57,6 +57,10 @@ class User < ApplicationRecord
     self.age.blank? && self.gender.blank? && self.languages.blank? && self.location.blank? && self.contact.blank?
   end
 
+  def self.languages_for_select
+      I18nData.languages
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
