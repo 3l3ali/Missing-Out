@@ -23,7 +23,10 @@ class PagesController < ApplicationController
     elsif params[:lat] && params[:lng]
       @lat = params[:lat]
       @lng = params[:lng]
-      @locations = @locations.near([params[:lat], params[:lng]], 15)
+      @bounds = params[:bounds].to_i
+      @bounds = 1 if @bounds.zero?
+
+      @locations = @locations.near([params[:lat], params[:lng]], @bounds)
       @posts = Post.where(location_id: @locations.map(&:id))
       set_category
       set_hash
@@ -40,7 +43,18 @@ class PagesController < ApplicationController
   end
 
   def travel_guide
-    @users= User.where(travel_guide: true)
+    if params[:language].blank?
+      if params[:place].present?
+        @users = User.where(travel_guide: true)
+        @users = @users.where("location LIKE ?", "%#{params[:place]}%")
+      else
+        @users = User.where(travel_guide: true)
+      end
+    else
+      @users = User.where(travel_guide: true)
+      @users = @users.where("location LIKE ?", "%#{params[:place]}%")
+      @users = @users.select { |user| user.languages.pluck(:name).include?(params[:language]) }
+    end
   end
 
 

@@ -19,12 +19,12 @@ $(document).ready(function () {
       $('#reviewForm').hide();
       $('#addReview').click(function () {
         $('#reviewForm').toggle();
-        text = "Add A review"
+        text = "Add a review"
       if ($('#addReview').text() == text)
       {
         $("#addReview").html("Hide");
       } else {
-        $("#addReview").html("Add A review");
+        $("#addReview").html("Add a review");
       }
 
 

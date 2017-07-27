@@ -57,15 +57,12 @@
           </div>
           <div class="get-direction">
             <a href="https://www.google.com/maps/preview/@<%= @post.location.latitude %>,<%= @post.location.longitude %>" class="btn btn-primary">Get Directions</a>
-
             <%= link_to edit_post_path(@post), class: "pen-update" do %>
               <i class="fa fa-pencil" aria-hidden="true"></i>
             <% end if policy(@post).update? %>
-
             <%= link_to post_path(@post), method: :delete, data: {confirm: "Are you sure ?"}, class: "trash-delete"  do %>
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end if policy(@post).destroy? %>
-
           </div>
         </div>
         <div class="clear"></div>
@@ -128,7 +125,7 @@
       <div id="map"></div>
       <br>
       <div class="desktop-get-direction">
-        <a href="#" class="btn btn-primary">Get Directions</a>
+        <a href="#" class="clean-look-btn">Get Directions</a>
       </div>
       <!-- Include Google Maps JS library. You should use your *own* key -->
       <script src="https://maps.google.com/maps/api/js?key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"></script>
@@ -146,6 +143,7 @@
                 ]);
                 handler.bounds.extendWith(markers);
                 handler.fitMapToBounds();
+                handler.getMap().setZoom(16);
               });
             })
           </script>
@@ -162,9 +160,9 @@
             <h3>Reviews:</h3>
           </div>
           <% if user_signed_in? %>
-            <div id="addReview" class="btn btn-primary">Add a review</div>
+            <div id="addReview" class="clean-look-btn">Add a review</div>
           <% else %>
-            <%= link_to "Add a review", new_user_session_path, class: "btn btn-primary" %>
+            <%= link_to "Add a review", new_user_session_path, class: "clean-look-btn" %>
           <% end %>
         </div>
         <div id="reviewForm">
@@ -180,10 +178,10 @@
           </li>
         </ul>
       </div>
-    </div>
-    <% if @post.reviews.count > 3 %>
-      <div id="loadMore" class="text-center">Load more</div>
-    <% end %>
+      <% if @post.reviews.count > 3 %>
+        <div id="loadMore" class="text-center">Load More</div>
+      <% end %>
+      </div>
     <div class="desktop-show-location"></div>
   </div>
 </div>

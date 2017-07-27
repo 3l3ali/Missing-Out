@@ -48,6 +48,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to favourites_index_path do %>
+                <i class="fa fa-map-marker"></i>  <%= t(".profile", default: "My favorites") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
@@ -96,11 +101,14 @@
           <% end %>
         </li>
         <li>
-          <div class="dropdown-badge-container">
-            <%= link_to dashboard_path , class: "navbar-missing-out-item navbar-missing-out-link" do %>
-              <i class="fa fa-globe"></i>&nbsp;Dashboard
-            <% end %>
-          </div>
+          <%= link_to dashboard_path , class: "navbar-missing-out-item navbar-missing-out-link" do %>
+            <i class="fa fa-globe"></i>&nbsp;Dashboard
+          <% end %>
+        </li>
+        <li>
+          <%= link_to favourites_index_path, class: "navbar-missing-out-item navbar-missing-out-link" do %>
+            <i class="fa fa-map-marker"></i>  <%= t(".profile", default: "My favorites") %>
+          <% end %>
         </li>
         <li>
           <% if user_signed_in? %>

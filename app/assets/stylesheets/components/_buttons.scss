@@ -1,0 +1,15 @@
+$blue-inside: #213A79;
+$blue-border: #2C50A9;
+
+.clean-look-btn {
+  background-color: white;
+  color: $blue-inside;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1.5px solid $blue-border;
+
+  &:hover {
+    background-color: $blue-border;
+    color: white;
+  }
+}

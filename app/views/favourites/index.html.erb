@@ -11,7 +11,7 @@
             <ul>
               <% @activities.each do |post| %>
                 <%= link_to post_path post do %>
-                  <li><i class="fa fa-map-marker loc-mark" aria-hidden="true">&nbsp;&nbsp;</i><%= post.title %></li>
+                  <li><i class="fa fa-map-marker loc-mark" aria-hidden="true"></i>&nbsp;&nbsp;<%= post.title %></li>
                 <% end %>
               <% end %>
             </ul>
@@ -35,7 +35,7 @@
             <ul>
               <% @foods.each do |post| %>
                 <%= link_to post_path post do %>
-                  <li><i class="fa fa-map-marker loc-mark" aria-hidden="true">&nbsp;&nbsp;<%= post.title %></li>
+                  <li><i class="fa fa-map-marker loc-mark" aria-hidden="true"></i>&nbsp;&nbsp;<%= post.title %></li>
                 <% end %>
               <% end %>
             </ul>
@@ -59,7 +59,7 @@
             <ul>
               <% @entertainment.each do |post| %>
                 <%= link_to post_path post do %>
-                  <li><i class="fa fa-map-marker loc-mark" aria-hidden="true">&nbsp;&nbsp;<%= post.title %></li>
+                  <li><i class="fa fa-map-marker loc-mark" aria-hidden="true"></i>&nbsp;&nbsp;<%= post.title %></li>
                 <% end %>
               <% end %>
             </ul>

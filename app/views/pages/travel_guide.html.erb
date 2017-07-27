@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <h2>search for guide's location: </h2><%= render 'search' %>
       <table>
         <% @users.each do |guide| %>
           <tr>
@@ -15,7 +16,11 @@
               <h3><%= link_to "#{guide.first_name} #{guide.last_name}" , guide %></h3>
             </td>
             <td width="30%">
-              <h3>guide service location:</h3><h3><small><%= guide.location %></small></h3>
+              <h3>guide service location:</h3><h3><small><%= guide.location %></small></h3><hr>
+              <h3>Languages: </h3>
+              <% guide.languages.pluck(:name).each do |language| %>
+                <h3><small><%= language %></small></h3>
+              <% end %>
             </td>
           </tr>
         <% end %>
