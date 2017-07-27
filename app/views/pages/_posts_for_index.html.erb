@@ -21,9 +21,12 @@
     <div class="post-review-stat">
       <% if post.reviews.where(recommended: true).count > 0 %>
         <%= pluralize(post.reviews.count, 'review') %> | <%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended |
-      <% else %>
-        Be the first one to review. |
       <% end %>
+
+      <% if post.reviews.count.zero? %>
+        <p>Be the first one to review this ! |</p>
+      <% end %>
+
       <% if user_signed_in? %>
         <%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> reviewed.
       <% end %>
