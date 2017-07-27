@@ -14,7 +14,6 @@ class PagesController < ApplicationController
     set_category
     set_hash
 
-
     if params[:search_j].present?
       @posts = Post.search(params[:search_j]).order(created_at: :desc)
       @locations = @locations.where("address LIKE ?", "%#{params[:search_j]}%")
