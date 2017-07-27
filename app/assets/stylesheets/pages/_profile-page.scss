@@ -102,3 +102,12 @@
   width: 120px;
   margin-left: 35%;
 }
+
+.minus-plus {
+  color: #3D608A;
+
+  &:hover {
+    text-decoration: none;
+    color: #143457;
+  }
+}
