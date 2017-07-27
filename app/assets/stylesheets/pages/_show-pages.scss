@@ -157,8 +157,11 @@
 #loadMore {
   font-size: 20px;
   margin-bottom:10px;
-  color:#EAEAEA;
+  color: #213A79;
   cursor: pointer;
+  &:hover{
+    color:white;
+  }
 }
 .heart-fav {
   float:left;
