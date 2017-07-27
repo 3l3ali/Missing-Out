@@ -33,19 +33,36 @@
         <div class="show-box">
           <div class="show-title">
             <h2><%= @post.title %></h2>
+              <% if current_user %>
+                <div class="heart-fav">
+                  <% unless current_user.favourites.where(post: @post).exists?  %>
+                    <%= link_to favourites_add_path(post_id: @post.id), class: "empty-heart" do %>
+                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to favourites_remove_path(post_id: @post.id), class: "filled-heart" do %>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="heart-fav">
+                  <%= link_to new_user_session_path, class: "empty-heart" do %>
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <% end %>
+                </div>
+              <% end %>
+            <div class="clear-float"></div>
             <p><%= @post.location.address %></p>
           </div>
           <div class="get-direction">
-            <a href="#" class="clean-look-btn">Get Directions</a>
-
+            <a href="https://www.google.com/maps/preview/@<%= @post.location.latitude %>,<%= @post.location.longitude %>" class="btn btn-primary">Get Directions</a>
             <%= link_to edit_post_path(@post), class: "pen-update" do %>
               <i class="fa fa-pencil" aria-hidden="true"></i>
             <% end if policy(@post).update? %>
-
             <%= link_to post_path(@post), method: :delete, data: {confirm: "Are you sure ?"}, class: "trash-delete"  do %>
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end if policy(@post).destroy? %>
-
           </div>
         </div>
         <div class="clear"></div>
@@ -56,25 +73,6 @@
         <div class="place-review">
           <p><%= @post.description %></p>
         </div>
-        <% if current_user %>
-          <div>
-            <% unless current_user.favourites.where(post: @post).exists?  %>
-              <%= link_to favourites_add_path(post_id: @post.id), class: "empty-heart" do %>
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
-              <% end %>
-            <% else %>
-              <%= link_to favourites_remove_path(post_id: @post.id), class: "filled-heart" do %>
-                <i class="fa fa-heart" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
-          </div>
-        <% else %>
-          <div>
-            <%= link_to new_user_session_path, class: "empty-heart" do %>
-              <i class="fa fa-heart-o" aria-hidden="true"></i>
-            <% end %>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>

@@ -199,3 +199,39 @@
 .in-up {
   padding-bottom: 8px;
 }
+.location-icon {
+  padding: 8px;
+  -webkit-transition: padding 0.3s; /* Safari */
+  transition: padding .3s;
+  }
+.gps-icon {
+  padding: 8px;
+  -webkit-transition: padding 0.3s; /* Safari */
+  transition: padding .3s;
+}
+.sign-in-icon {
+  padding:8px;
+  -webkit-transition: padding 0.3s; /* Safari */
+  transition: padding .3s;
+
+}
+.location-icon:hover {
+  padding: 0;
+  }
+.gps-icon:hover {
+  padding: 0;
+}
+.sign-in-icon:hover {
+  padding:0;
+
+}
+.sign-in-form-container{
+  position:absolute;
+  top:0;
+  left:0;
+  background:rgba(0, 0, 0, 0.6);
+  width: 100%;
+  background-size: cover;
+  height:100vh;
+  background-attachment: fixed;
+}

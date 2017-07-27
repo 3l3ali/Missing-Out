@@ -1,13 +1,43 @@
+@media screen and (max-width: 768px){
+  .review-avatar{
+    img{
+      border-radius: 50%;
+      object-fit: cover;
+      width:50px;
+      height:50px;
+      overflow: hidden;
+    }
+  }
+  .my-reviews td{
+    font-size: 13 px;
+  }
+  .time-review{
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 769px){
+  .review-avatar{
+    img{
+      border-radius: 50%;
+      object-fit: cover;
+      width:100px;
+      height:100px;
+      overflow: hidden;
+    }
+  }
+}
 .review-table{
   margin-top: 20px;
 }
 .review-table td{
   padding:10px;
 }
-.review-avatar{
-  img{
-    border-radius: 50%;
-    width:100%;
-  }
+.my-reviews{
+  padding:0;
 }
 
+.edit-btns{
+  float:right;
+
+}
