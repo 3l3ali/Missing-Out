@@ -1,8 +1,26 @@
 <%= form_tag index_path, method: :get  do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Location: eg. Meguro, Tokyo", class: "text-field-filter" %>
-  <%= select_tag :category, options_for_select(Post.categories_for_select, params[:category]), class: "category-filter" %>
+  <div class="container">
+    <div class="row">
 
-  <%= select_tag :bounds, options_for_select({"1 km"=>1, "5 km"=>5, "10 km"=>10, "20 km"=>20, "40 km"=>40, "60 km"=>60}, params[:bounds]), class: "bounds-filter" %>
+      <div class="hidden-xs hidden-sm col-md-3">
+        <%= text_field_tag :search, params[:search], placeholder: "Location: eg. Meguro, Tokyo", class: "form-control" %>
+      </div>
 
-  <%= submit_tag "Search", class: "btn search-submit-btn" %>
+      <div class="col-xs-12 hidden-md hidden-lg hidden-xl search-loc-mobile">
+        <%= text_field_tag :search, params[:search], placeholder: "Location: eg. Meguro, Tokyo", class: "form-control" %>
+      </div>
+
+      <div class="col-xs-4 col-md-3">
+        <%= select_tag :category, options_for_select(Post.categories_for_select, params[:category]), class: "form-control" %>
+      </div>
+
+      <div class="col-xs-4 col-md-3">
+        <%= select_tag :bounds, options_for_select({"1 km"=>1, "5 km"=>5, "10 km"=>10, "20 km"=>20, "40 km"=>40, "60 km"=>60}, params[:bounds]), class: "form-control" %>
+      </div>
+
+      <div class="col-xs-4 col-md-3">
+        <%= submit_tag "Search", class: "form-control clean-look-btn-white" %>
+      </div>
+    </div>
+  </div>
 <% end %>

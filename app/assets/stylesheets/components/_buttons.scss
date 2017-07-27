@@ -20,6 +20,18 @@ $green-border: #188822;
   }
 }
 
+.clean-look-btn-white {
+  background-color: #0092ca;
+  color: white;
+  border-radius: 5px;
+  border: 1.5px solid white;
+
+  &:hover {
+    background-color: white;
+    color: #0092ca;
+  }
+}
+
 .clean-look-btn-red {
   background-color: white;
   color: $red-inside;
