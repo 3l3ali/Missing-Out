@@ -1,6 +1,12 @@
 $blue-inside: #213A79;
 $blue-border: #2C50A9;
 
+$red-inside: #810807;
+$red-border: #CE121C;
+
+$red-inside: #1B733A;
+$red-border: #188822;
+
 .clean-look-btn {
   background-color: white;
   color: $blue-inside;
@@ -10,6 +16,32 @@ $blue-border: #2C50A9;
 
   &:hover {
     background-color: $blue-border;
+    color: white;
+  }
+}
+
+.clean-look-btn-red {
+  background-color: white;
+  color: $red-inside;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1.5px solid $red-border;
+
+  &:hover {
+    background-color: $red-border;
+    color: white;
+  }
+}
+
+.clean-look-btn-green {
+  background-color: white;
+  color: $red-inside;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1.5px solid $red-border;
+
+  &:hover {
+    background-color: $red-border;
     color: white;
   }
 }
