@@ -19,30 +19,7 @@
   padding:5px 10px;
   width:40%;
 }
-.filter-category{
-  overflow: hidden;
-  width: 100%;
-}
-.filter-category select {
 
-   border: none;
-   font-size: 14px;
-   height:36px;
-   padding: 5px; /* If you add too much padding here, the options won't show in IE */
-   width: 268px;
-}
-.filter-category.slate {
-   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
-   height: 34px;
-   width: 240px;
-}
-
-.filter-category.slate select {
-   border: 1px solid #ccc;
-   font-size: 16px;
-   height: 34px;
-   width: 268px;
-}
 
 
 /* -------------------- Colors: Background */
@@ -73,9 +50,10 @@
    -webkit-justify-content: center;
    justify-content: center;
    margin-top:20px;
+   align-content:flex-wrap;
 }
 .list-img {
-  float:left;
+
   width:25%;
 }
 .list-img img{
@@ -83,13 +61,13 @@
 }
 .list-des h4{
   color: #0092CA;
-  line-height: 10px;
-  font-size:16px;
+  line-height: 14px;
+  font-size:14px;
 
 }
 .list-des p{
   line-height: 8px;
-  font-size: 14px;
+  font-size: 11px;
 
 }
 .list-img img{
@@ -97,13 +75,11 @@
 
 }
 .list-des{
-  float:left;
-  width:65%;
+  width:70%;
   margin: 10px;
 
 }
 .list-link{
-  float:right;
   width: 5%;
 
 }
@@ -198,4 +174,8 @@
 .box-container {
 
 
+}
+.posts_for_index a{
+  text-decoration:none;
+  color:#0092CA;
 }

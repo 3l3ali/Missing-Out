@@ -1,10 +1,10 @@
 <% posts.each do |post| %>
-  <%= link_to post_path(post) do%>
+  <%= link_to post_path(post) do %>
     <div class="list-item">
       <div class="list-img">
         <% if post.photos.present? %>
           <%= cl_image_tag post.photos.first.path, :transformation=>[
-            {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"}], class: "post-avatar" %>
+            {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"thumb"}], class: "post-avatar" %>
         <% else %>
           <%= image_tag "non-ava", class: "post-avatar" %>
         <% end %>
@@ -12,24 +12,27 @@
       <div class="list-des">
         <h4><%= post.title %></h4>
           <p>Category &nbsp;:&nbsp;<%= post.category %></p>
-          <p>Distance</p>
           <br>
-          <% if post.reviews.where(recommended: true).count > 0 %>
-            <p>has <%= pluralize(post.reviews.count, 'review') %>.</p>
-            <p><%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended this.</p>
-          <% else %>
-            <p>Be the first one to review this !</p>
-          <% end %>
-          <% if user_signed_in? %>
-            <p><%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> have reviewed this.</p>
-          <% end %>
       </div>
       <div class="list-link">
-        <%= link_to post_path(post) do %>
           <i class="fa fa-arrow-right"></i>
-        <% end %>
       </div>
     </div>
+    <div class="post-review-stat">
+      <% if post.reviews.where(recommended: true).count > 0 %>
+        <%= pluralize(post.reviews.count, 'review') %> | <%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended |
+      <% end %>
+
+      <% if post.reviews.count.zero? %>
+        <p>Be the first one to review this ! |</p>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> reviewed.
+      <% end %>
+
+    </div>
   <% end %>
+  <hr>
 <% end %>
-<hr>
+

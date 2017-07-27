@@ -1,42 +1,12 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-xs-12"> -->
-<!--       <table>
-        <%# @users.each do |guide| %>
-          <tr>
-            <td width="30%">
-                <%# unless guide.facebook_picture_url.present? %>
-                  <%#= (cl_image_tag guide.photo, class:"img-circle") if guide.photo.present? %>
-                <%# else %>
-                  <%#= image_tag guide.facebook_picture_url, class:"img-circle" %>
-                <%# end %>
-            </td>
-            <td width="30%">
-              <h3><%#= link_to "#{guide.first_name} #{guide.last_name}" , guide %></h3>
-            </td>
-            <td width="30%">
-              <h3>guide service location:</h3><h3><small><%#= guide.location %></small></h3><hr>
-              <h3>Languages: </h3>
-              <%# guide.languages.pluck(:name).each do |language| %>
-                <h3><small><%#= language %></small></h3>
-              <%# end %>
-            </td>
-          </tr>
-        <%# end %>
-      </table>
-    </div>
-  </div>
-</div>
- -->
-
-
-
-<div class="container">
-  <h2>search for guide's location: </h2><%= render 'search' %><hr>
+<div class="guide-wrapper">
+  <h2>Find a tour guide</h2>
+  <%= render 'search' %>
+  <hr>
+  <div class="container">
     <div class="row">
       <% @users.each do |guide| %>
         <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(https://unsplash.it/200/200); ">
+            <div class="card" style="background-image: linear-gradient(to bottom right,rgba(28, 46, 68,0.9), rgba(36, 59, 85,0.5))">
               <div class="card-description"><h3><%= "#{guide.first_name} #{guide.last_name}" %></h3></div>
               <div class="card-category">
                 <h4><%= guide.location %></h4>
@@ -47,16 +17,16 @@
                 </p>
               </div>
                 <% unless guide.facebook_picture_url.present? %>
-                  <%= (cl_image_tag guide.photo, class:"avatar card-user") if guide.photo.present? %>
+                  <%= (cl_image_tag guide.photo.path, class:"avatar card-user") if guide.photo.present? %>
                 <% else %>
                   <%= image_tag guide.facebook_picture_url, class:"avatar card-user" %>
                 <% end %>
-                <%#= link_to user_path(guide), class:"card-link" %>
               <a class="card-link" href="<%= user_path(guide) %>#travel_guide" ></a>
             </div>
         </div>
      <% end %>
     </div>
+  </div>
 </div>
 
 
