@@ -140,7 +140,7 @@
                   {
                     "lat": <%= @post.location.latitude %>,
                     "lng": <%= @post.location.longitude %>,
-                    "infowindow": "<h1>Aix - Marseille</h1>"
+                    "infowindow": "<h1><small><%= @post.title %></small></h1>"
                   }
                 ]);
                 handler.bounds.extendWith(markers);

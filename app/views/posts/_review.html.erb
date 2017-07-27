@@ -30,10 +30,13 @@
             <i class="fa fa-trash" aria-hidden="true"></i>
           <% end if policy(review).destroy?%>
       </td>
-      <tr>
-        <%= review.created_at %>
-      </tr>
     </tr>
   </table>
+  <div class="time-review-container">
+    <div class="time-review">
+      <%= review.created_at.strftime('%e/%b/%Y  %l:%M %p') %>
+    </div>
+  </div>
   <hr>
 </div>
+

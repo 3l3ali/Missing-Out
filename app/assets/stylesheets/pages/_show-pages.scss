@@ -142,3 +142,17 @@
   margin:10px 10px;
   font-size:20px;
 }
+
+
+
+.time-review-container {
+  width: 100%;
+  position: relative;
+}
+
+.time-review {
+  position: absolute;
+  right: 13px;
+  bottom: 2px;
+  color: gray;
+}
