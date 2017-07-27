@@ -31,12 +31,6 @@
 
 
 
-
-
-
-
-
-
 .dashboard-container-desktop {
   background-image: image-url("desktop-bg.png");
   height: 100vh;
@@ -47,12 +41,12 @@
   border-radius: 5px;
   margin-bottom:10px;
   margin-right: 10px;
-  height: 300px;
+  height: 280px;
   width: 100%;
   img {
-    height: 100%;
-    width: 300px;
-    margin-left: 10%;
+    height: 90%;
+    width: 250px;
+    margin-left: 3%;
   }
 }
 
