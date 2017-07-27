@@ -16,7 +16,7 @@
 
             <td width="30%">
               <%= link_to user_path(follower) do %>
-               <%= following.first_name %>&nbsp;<%=following.last_name %>
+               <%= follower.first_name %>&nbsp;<%=follower.last_name %>
               <% end %>
             </td>
             <% if current_user.id == @user.id %>
