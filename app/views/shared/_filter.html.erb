@@ -1,23 +1,20 @@
 <%= form_tag index_path, method: :get  do %>
-
-        <div class="filter">
-          <%= image_tag 'filter.png' %>
-        </div>
-        <div class="location-search-bar">
-          <%= text_field_tag :search, params[:search], placeholder: "Location: eg. Meguro, Tokyo", class: "form-control" %>
-        </div>
-        <div class="location-search-bar-btn">
-          <%= submit_tag "Search", class: "clear-padding form-control clean-look-btn-white" %>
-        </div>
-      <div class="clear-float"></div>
-      <div id="toggleFilter" class="filter-search hidden">
-        <div class="search-category-filter">
-          <%= select_tag :category, options_for_select(Post.categories_for_select, params[:category]), class: "form-control" %>
-        </div>
-        <div class="search-category-filter">
-          <%= select_tag :bounds, options_for_select({"1 km"=>1, "5 km"=>5, "10 km"=>10, "20 km"=>20, "40 km"=>40, "60 km"=>60}, params[:bounds]), class: "form-control" %>
-        </div>
-      </div>
+  <div class="filter">
+    <%= image_tag 'filter.png' %>
+  </div>
+  <div class="location-search-bar">
+    <%= text_field_tag :search, params[:search], placeholder: "Location: eg. Meguro, Tokyo", class: "form-control" %>
+  </div>
+  <div class="location-search-bar-btn">
+    <%= submit_tag "Search", class: "clear-padding form-control clean-look-btn-white" %>
+  </div>
+  <div class="clear-float"></div>
+  <div id="toggleFilter" class="filter-search hidden">
+    <div class="search-category-filter">
+      <%= select_tag :category, options_for_select(Post.categories_for_select, params[:category]), class: "form-control" %>
+    </div>
+    <div class="search-category-filter">
+      <%= select_tag :bounds, options_for_select({"1 km"=>1, "5 km"=>5, "10 km"=>10, "20 km"=>20, "40 km"=>40, "60 km"=>60}, params[:bounds]), class: "form-control" %>
     </div>
   </div>
 <% end %>
