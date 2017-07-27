@@ -56,7 +56,7 @@
             <p><%= @post.location.address %></p>
           </div>
           <div class="get-direction">
-            <a href="https://www.google.com/maps/preview/@<%= @post.location.latitude %>,<%= @post.location.longitude %>" class="btn btn-primary">Get Directions</a>
+            <a href="https://www.google.com/maps/preview/@<%= @post.location.latitude %>,<%= @post.location.longitude %>" class="clean-look-btn">Get Directions</a>
             <%= link_to edit_post_path(@post), class: "pen-update" do %>
               <i class="fa fa-pencil" aria-hidden="true"></i>
             <% end if policy(@post).update? %>
@@ -178,8 +178,8 @@
           </li>
         </ul>
       </div>
-      <% if @post.reviews.count > 3 %>
-        <div id="loadMore" class="text-center">Load More</div>
+      <% if @post.reviews.count > 1 %>
+        <div id="loadMore" class="text-center clean-look-btn">Load More</div>
       <% end %>
       </div>
     <div class="desktop-show-location"></div>
