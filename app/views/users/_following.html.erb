@@ -7,7 +7,7 @@
             <td width="30%">
               <div>
                 <% unless following.facebook_picture_url.present? %>
-                  <%= (cl_image_tag following.photo, class:"avatar-bordered") if following.photo.present? %>
+                  <%= (cl_image_tag following.photo.path, class:"avatar-bordered") if following.photo.present? %>
                 <% else %>
                   <%= image_tag following.facebook_picture_url, class:"avatar-bordered" %>
                 <% end %>
