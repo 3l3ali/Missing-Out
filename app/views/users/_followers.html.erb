@@ -7,9 +7,9 @@
             <td width="30%">
               <div>
                 <% unless follower.facebook_picture_url.present? %>
-                  <%= (cl_image_tag follower.photo.path, class:"avatar-bordered") if follower.photo.present? %>
+                  <%= (cl_image_tag follower.photo.path, :gravity=>"face", :width=>50, :height=>50, :crop=>"thumb") if follower.photo.present? %>
                 <% else %>
-                  <%= image_tag follower.facebook_picture_url, class:"avatar-bordered" %>
+                  <%= image_tag follower.facebook_picture_url, class:"avatar-circle-xs-small" %>
                 <% end %>
               </div>
             </td>
