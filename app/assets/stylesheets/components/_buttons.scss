@@ -4,8 +4,8 @@ $blue-border: #2C50A9;
 $red-inside: #810807;
 $red-border: #CE121C;
 
-$red-inside: #1B733A;
-$red-border: #188822;
+$green-inside: #1B733A;
+$green-border: #188822;
 
 .clean-look-btn {
   background-color: white;
@@ -35,13 +35,13 @@ $red-border: #188822;
 
 .clean-look-btn-green {
   background-color: white;
-  color: $red-inside;
+  color: $green-inside;
   padding: 5px 10px;
   border-radius: 5px;
-  border: 1.5px solid $red-border;
+  border: 1.5px solid $green-border;
 
   &:hover {
-    background-color: $red-border;
+    background-color: $green-border;
     color: white;
   }
 }
