@@ -171,3 +171,12 @@
   float:left;
   margin-right:10px;
 }
+.post-review-stat {
+  font-size:12px;
+  width:100%;
+  text-align:center;
+}
+.list-des a:hover, .post-review-stat a:hover{
+  text-decoration:none;
+  color:#0092CA;
+}
