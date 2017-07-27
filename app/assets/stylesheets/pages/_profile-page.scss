@@ -29,3 +29,76 @@
     padding: 15px;
   }
 }
+
+
+.profile-avatar {
+  img {
+    height: 120px;
+    width: 120px;
+  }
+}
+
+
+
+.profile-wrapper {
+  position: relative;
+  height: 200px;
+  width: 100% ;
+}
+
+.profile-pic {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+}
+
+.profile-name {
+  position: absolute;
+  left: 140px;
+  top: 70px;
+}
+
+.profile-follow {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+}
+
+.profile-guide {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.profile-edit {
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
+  i {
+    color: gray;
+    font-size: 18px;
+
+    &:hover {
+      color: #3F3F3F;
+    }
+  }
+}
+
+
+.travel-guide-info-wrapper {
+  width: 100%;
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    h3 {
+      padding-left: 20px ;
+    }
+  }
+}
+
+.submit-guide-info {
+  width: 120px;
+  margin-left: 35%;
+}

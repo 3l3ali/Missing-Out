@@ -1,35 +1,57 @@
-<% if @user.travel_guide? %>
-  <ul>
-    <li>
-      <h2>location: </h2><h2><small><%= @user.location %></small></h2>
-    </li>
-    <li>
-      <h2>Age: </h2><h2><small><%= @user.age %></small></h2>
-    </li>
-    <li>
-      <h2>gender: </h2><h2><small><%= @user.gender %></small></h2>
-    </li>
-    <li>
-      <h2>Languages i can speak:</h2>
-      <% if @user.languages.present? %>
-        <% @user.languages.each do |language| %>
-          <h4><%= language.name %></h4>
-        <% end %>
-      <% end %>
-    </li>
-    <li>
-      <h2>Contact me:</h2><h2><small><%= @user.contact %></small></h2>
-    </li>
-  </ul>
-<% elsif @user.travel_guide.nil? %>
-  <%= link_to "Become a travel guide", newg_user_path %>
-<% else %>
-  <h2>Off Duty</h2>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-offset-3 col-md-6">
+      <div class="travel-guide-info-wrapper">
+        <% if @user.travel_guide? %>
+          <ul>
+            <li>
+              <h4>location</h4>
+              <h3><small><%= @user.location %></small></h3>
+            </li>
+            <hr>
 
-<% if current_user.id == @user.id && !current_user.invalid_guide? %>
-  <%= simple_form_for current_user do |f| %>
-    <%= f.input :travel_guide, label: "Available" %>
-    <%= f.submit "submit", class:"btn btn-info"%>
-  <% end %>
-<% end %>
+            <li>
+              <h4>Age</h4>
+              <h3><small><%= @user.age %></small></h3>
+            </li>
+            <hr>
+
+            <li>
+              <h4>gender</h4>
+              <h3><small><%= @user.gender %></small></h3>
+            </li>
+            <hr>
+
+            <li>
+              <h4>Languages</h4>
+              <% if @user.languages.present? %>
+                <% @user.languages.each do |language| %>
+                  <h3><small><%= language.name %><small></h3>
+                <% end %>
+              <% end %>
+            </li>
+            <hr>
+
+            <li>
+              <h4>Contact me</h4>
+              <h3><small><%= @user.contact %></small></h3>
+            </li>
+          </ul>
+        <% elsif @user.travel_guide.nil? %>
+          <%= link_to "Become a travel guide", newg_user_path %>
+        <% else %>
+          <h1 class="text-center"><small>Off Duty !</small></h1>
+        <% end %>
+
+        <hr>
+        <% if current_user.id == @user.id && !current_user.invalid_guide? %>
+          <%= simple_form_for current_user do |f| %>
+            <%= f.input :travel_guide, label: "Available", class: "form-control" %>
+            <%= f.submit "submit", class: "clean-look-btn-green submit-guide-info"%>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
