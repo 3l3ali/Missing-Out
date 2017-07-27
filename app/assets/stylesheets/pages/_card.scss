@@ -1,10 +1,12 @@
 .card {
-  height: 175px;
+  height: 185px;
+  width: 400px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
+  border-radius: 10px;
 }
 .card-user {
   position: absolute;
