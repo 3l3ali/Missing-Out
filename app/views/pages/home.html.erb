@@ -58,11 +58,11 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-4 hidden-xs">
-          <div class="sign-in-icon text-center center-icons">
+          <div id="signs-in" class="sign-in-icon text-center center-icons">
             <%= link_to index_path ,class: "home-desk" do %>
               <%= image_tag "sign-in.png" %>
             <% end %>
-            <div class="in-up">
+            <div id="sisgn-in" class="in-up">
               <%= link_to "Sign in", new_user_session_path ,class: "home-desk" ,class: "home-desk"%>
               <%= link_to "|" , '#' ,class: "pipe-desk"%>
               <%= link_to "Sign up", new_user_registration_path ,class: "home-desk" %>
@@ -71,5 +71,10 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div id="sign-in-form" class="sign-in-form-container">
+  <div class="sign-in-form">
+
   </div>
 </div>

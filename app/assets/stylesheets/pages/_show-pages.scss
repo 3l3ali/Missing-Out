@@ -31,6 +31,7 @@
 }
 .show-title {
   float:left;
+
 }
 .get-direction{
   float:right;
@@ -143,16 +144,27 @@
   font-size:20px;
 }
 
-
-
 .time-review-container {
   width: 100%;
   position: relative;
 }
 
 .time-review {
-  position: absolute;
-  right: 13px;
-  bottom: 2px;
+  float:right;
   color: gray;
+  margin-bottom:5px;
+}
+#loadMore {
+  font-size: 20px;
+  margin-bottom:10px;
+  color:#EAEAEA;
+  cursor: pointer;
+}
+.heart-fav {
+  float:left;
+  margin:20px 40px 0 0;
+}
+.show-title h2{
+  float:left;
+  margin-right:10px;
 }
