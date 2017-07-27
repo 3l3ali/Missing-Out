@@ -47,7 +47,7 @@
                 </p>
               </div>
                 <% unless guide.facebook_picture_url.present? %>
-                  <%= (cl_image_tag guide.photo, class:"img-circle") if guide.photo.present? %>
+                  <%= (cl_image_tag guide.photo, class:"avatar card-user") if guide.photo.present? %>
                 <% else %>
                   <%= image_tag guide.facebook_picture_url, class:"avatar card-user" %>
                 <% end %>
