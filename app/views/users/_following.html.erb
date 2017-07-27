@@ -1,28 +1,35 @@
-<table>
-  <% @user.followings.each do |following| %>
-    <tr>
-      <td width="30%">
-        <div>
-          <% unless following.facebook_picture_url.present? %>
-            <%= (cl_image_tag following.photo, class:"avatar-bordered") if following.photo.present? %>
-          <% else %>
-            <%= image_tag following.facebook_picture_url, class:"avatar-bordered" %>
-          <% end %>
-        </div>
-      </td>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-offset-3 col-md-6">
+      <table class="following-table">
+        <% @user.followings.each do |following| %>
+          <tr>
+            <td width="30%">
+              <div>
+                <% unless following.facebook_picture_url.present? %>
+                  <%= (cl_image_tag following.photo, class:"avatar-bordered") if following.photo.present? %>
+                <% else %>
+                  <%= image_tag following.facebook_picture_url, class:"avatar-bordered" %>
+                <% end %>
+              </div>
+            </td>
 
-      <td width="30%">
-        <%= link_to following.first_name, user_path(following) %>
-      </td>
-      <% if current_user.id == @user.id %>
-        <td width="30%">
-          <%# if current_user && (current_user.id != @user.id) %>
-            <% if current_user.following_ids.include?(following.id) %>
-              <%= link_to "Unfollow", followings_destroy_path(user_id: following.id), data: {confirm: "Are you sure you want to unfollow #{following.first_name}?"}  , class:"btn btn-warning following" %>
+            <td width="30%">
+              <%= link_to following.first_name, user_path(following) %>
+            </td>
+            <% if current_user.id == @user.id %>
+              <td width="30%">
+                <%# if current_user && (current_user.id != @user.id) %>
+                  <% if current_user.following_ids.include?(following.id) %>
+                    <%= link_to "Unfollow", followings_destroy_path(user_id: following.id), data: {confirm: "Are you sure you want to unfollow #{following.first_name}?"}  , class:"clean-look-btn-red" %>
+                  <% end %>
+                <%# end %>
+              </td>
             <% end %>
-          <%# end %>
-        </td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+
