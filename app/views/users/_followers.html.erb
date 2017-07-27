@@ -22,7 +22,7 @@
             <% if current_user.id == @user.id %>
               <td width="30%">
                   <% unless current_user.following_ids.include?(follower.id) %>
-                    <%= link_to "Follow", followings_create_path(user_id: follower.id), class:"clean-look-btn" %>
+                    <%= link_to "Follow", followings_create_path(user_id: follower.id), class:"clean-look-btn-follow" %>
                     <% else %>
                     <%= link_to "Unfollow", followings_destroy_path(user_id: follower.id), data: {confirm: "Are you sure you want to unfollow #{follower.first_name}?"}  , class:"clean-look-btn-red" %>
                   <% end %>

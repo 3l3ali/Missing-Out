@@ -15,6 +15,20 @@ $green-border: #188822;
   border: 1.5px solid $blue-border;
 
   &:hover {
+    text-decoration: none;
+    background-color: $blue-border;
+    color: white;
+  }
+}
+.clean-look-btn-follow {
+  background-color: white;
+  color: $blue-inside;
+  padding: 5px 19.5px;
+  border-radius: 5px;
+  border: 1.5px solid $blue-border;
+
+  &:hover {
+    text-decoration: none;
     background-color: $blue-border;
     color: white;
   }
@@ -27,6 +41,7 @@ $green-border: #188822;
   border: 1.5px solid white;
 
   &:hover {
+    text-decoration: none;
     background-color: white;
     color: #0092ca;
   }
@@ -40,6 +55,7 @@ $green-border: #188822;
   border: 1.5px solid $red-border;
 
   &:hover {
+    text-decoration: none;
     background-color: $red-border;
     color: white;
   }
@@ -53,7 +69,42 @@ $green-border: #188822;
   border: 1.5px solid $green-border;
 
   &:hover {
+    text-decoration: none;
     background-color: $green-border;
     color: white;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.update {
+  padding: 5px 60px ;
+  margin-left: 25%;
+}
+
+
+.back {
+  padding: 5px 70px ;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 25%;
 }
