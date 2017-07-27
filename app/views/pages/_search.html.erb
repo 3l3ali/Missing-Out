@@ -1,5 +1,5 @@
 <%= form_tag guide_path, method: :get do %>
-   <%= text_field_tag :place, params[:place] %>
+   <%= text_field_tag :place, params[:place], placeholder: "Guide's location" %>
    <%= select_tag :language, options_for_select(User.languages_for_select.values, params[:language]), include_blank: true %>
    <%= submit_tag "Search"%>
  <% end %>
