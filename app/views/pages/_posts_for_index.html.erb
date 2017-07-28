@@ -20,7 +20,7 @@
     </div>
     <div class="post-review-stat">
       <% unless post.reviews.count.zero? %>
-        <%= pluralize(post.reviews.count, 'review') %> |
+        <%= pluralize(post.reviews.count, 'review') %>
       <% else %>
         Be the first to review!
       <% end %>
