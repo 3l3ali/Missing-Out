@@ -99,6 +99,24 @@
     width:40%;
     padding:40px 5px 30px 5px;
   }
+  .missing-out {
+    width: 300px ;
+    margin: 100px auto 0;
+  }
+    .blue-letters{
+      color:$blue;
+      line-height: 10px;
+      text-align: left;
+      font-weight: 900;
+      font-size: 85px
+
+    }
+    .white-letters{
+      color:white;
+      text-align: right;
+      font-weight: 900;
+      font-size: 85px
+    }
 }
 
 .backpacker-content img {

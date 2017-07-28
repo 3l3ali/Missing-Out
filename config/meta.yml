@@ -1,0 +1,5 @@
+meta_product_name: "Missing Out"
+meta_title: "Missing Out - Never Miss Out When Traveling"
+meta_description: "Ever travel or even at home you feel like you are missing out on things that are around you? Ever wanted to know what is around you that are the 'hidden gems' or 'hole in the wall' or things that your friends are going?  Missing Out is a social network of fellow travelers, locals, and your friends, adding places that may not be the 'touristy' places but places that may interest you."
+meta_image: "cover.png"                       # should exist in `app/assets/images/`
+twitter_account: "@Missing0ut"   # required for Twitter Cards
