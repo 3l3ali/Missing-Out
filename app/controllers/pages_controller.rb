@@ -45,7 +45,7 @@ class PagesController < ApplicationController
     if params[:language].blank?
       if params[:place].present?
         @users = User.where(travel_guide: true)
-        @users = @users.where("location LIKE ?", "%#{params[:place]}%")
+        @users = @users.where("location ILIKE ?", "%#{params[:place]}%")
       else
         @users = User.where(travel_guide: true)
       end

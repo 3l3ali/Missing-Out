@@ -43,9 +43,9 @@
   <div class="profile-follow">
     <% if current_user && (current_user.id != @user.id) %>
       <% unless @user.follower_ids.include?(current_user.id) %>
-        <%= link_to "Follow", followings_create_path(user_id: @user.id), class: "clean-look-btn" %>
+        <%= link_to "Follow", followings_create_path(user_id: @user.id), class: "clean-look-btn-white-follow-p" %>
       <% else %>
-        <%= link_to "Unfollow", followings_destroy_path(user_id: @user.id), class: "clean-look-btn-red" %>
+        <%= link_to "Unfollow", followings_destroy_path(user_id: @user.id), class: "clean-look-btn-white-unfollow-p" %>
       <% end %>
     <% end %>
   </div>
