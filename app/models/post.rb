@@ -27,10 +27,10 @@ class Post < ApplicationRecord
 
   def self.categories_for_select
     {
-      "all": "all",
-      "activities": "activities",
-      "foods": "foods",
-      "entertainment": "entertainment"
+      "All": "all",
+      "Activities": "activities",
+      "Foods": "foods",
+      "Entertainment": "entertainment"
     }
   end
 end
