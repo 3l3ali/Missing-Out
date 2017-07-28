@@ -2,11 +2,11 @@
   <div class="row">
       <%= form_tag guide_path, method: :get do %>
 
-        <div class="col-xs-4">
+        <div class="col-xs-12">
           <%= text_field_tag :place, params[:place], placeholder: "Location", class: "form-control"%>
         </div>
-
-        <div class="col-xs-4">
+        <div class="col-xs-12 buffer"></div>
+        <div class="col-xs-8">
           <%= select_tag :language, options_for_select(User.languages_for_select.values.map{|l| truncate(l, length: 12)}, params[:language]), prompt: "Language", class: "form-control" %>
         </div>
 

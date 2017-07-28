@@ -6,7 +6,7 @@
     <div class="row">
       <% @users.each do |guide| %>
         <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(to bottom right,rgba(28, 46, 68,0.9), rgba(36, 59, 85,0.5))">
+            <div class="card travel-guide-card">
               <div class="card-description"><h3><%= "#{guide.first_name} #{guide.last_name}" %></h3></div>
               <div class="card-category">
                 <h4><%= guide.location %></h4>
