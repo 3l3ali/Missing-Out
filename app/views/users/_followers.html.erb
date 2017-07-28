@@ -1,37 +1,39 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-offset-3 col-md-6">
-      <table class= "following-table">
-        <% @user.followers.each do |follower| %>
-          <tr>
-            <td width="30%">
-              <div>
-                <% unless follower.facebook_picture_url.present? %>
-                  <%= cl_image_tag follower.photo.path, class: "avatar-circle-xs-small" if follower.photo.present? %>
-                <% else %>
-                  <%= image_tag follower.facebook_picture_url, class:"avatar-circle-xs-small" %>
-                <% end %>
-              </div>
-            </td>
-
-            <td width="30%">
-              <%= link_to user_path(follower) do %>
-               <%= follower.first_name %>&nbsp;<%=follower.last_name %>
-              <% end %>
-            </td>
-            <% if current_user.id == @user.id %>
+<div class="tab-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-offset-3 col-md-6">
+        <table class= "following-table">
+          <% @user.followers.each do |follower| %>
+            <tr>
               <td width="30%">
-                  <% unless current_user.following_ids.include?(follower.id) %>
-                    <%= link_to "Follow", followings_create_path(user_id: follower.id), class:"clean-look-btn-follow" %>
-                    <% else %>
-                    <%= link_to "Unfollow", followings_destroy_path(user_id: follower.id), data: {confirm: "Are you sure you want to unfollow #{follower.first_name}?"}  , class:"clean-look-btn-red" %>
+                <div>
+                  <% unless follower.facebook_picture_url.present? %>
+                    <%= cl_image_tag follower.photo.path, class: "avatar-circle-xs-small" if follower.photo.present? %>
+                  <% else %>
+                    <%= image_tag follower.facebook_picture_url, class:"avatar-circle-xs-small" %>
                   <% end %>
+                </div>
               </td>
 
-            <% end %>
-         </tr>
-        <% end %>
-      </table>
+              <td width="30%">
+                <%= link_to user_path(follower), class: "details" do %>
+                 <%= follower.first_name %>&nbsp;<%=follower.last_name %>
+                <% end %>
+              </td>
+              <% if current_user.id == @user.id %>
+                <td width="30%">
+                    <% unless current_user.following_ids.include?(follower.id) %>
+                      <%= link_to "Follow", followings_create_path(user_id: follower.id), class:"clean-look-btn-white-follow" %>
+                      <% else %>
+                      <%= link_to "Unfollow", followings_destroy_path(user_id: follower.id), data: {confirm: "Are you sure you want to unfollow #{follower.first_name}?"}  , class:"clean-look-btn-white-unfollow" %>
+                    <% end %>
+                </td>
+
+              <% end %>
+           </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
   </div>
 </div>

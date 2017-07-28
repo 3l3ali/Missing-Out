@@ -5,12 +5,12 @@
     <%= f.input :title, label: "Name of Place", placeholder: "e.g. Lou's Pizza", label: false %>
     <%= f.input :description, placeholder: "Description.. Tell me what  makes it so special", label: false %>
     <div class="help-tip">
-      <p>100 Characters Minimum.</p>
+      <p>40 Characters Minimum.</p>
     </div>
     <%= f.simple_fields_for @post.location do |l| %>
       <%= l.input :address, placeholder: "123 456, Meguro, Tokyo", label: "Address" , input_html: {class: "big-input"}, label: false %>
     <% end %>
-    <%= f.input :category, collection: Post.categories.keys, label: false %>
+    <%= f.input :category, collection: Post.categories.keys, label: false, prompt: "Category" %>
     <h4>Add Photos Of Your Gem</h4>
     <%= f.input :photos, as: :attachinary, label: false %>
   </div>

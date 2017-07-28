@@ -1,28 +1,30 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-offset-3 col-md-6">
-      <table class="favourite-table">
-        <% @user.favourite_posts.each do |favourite| %>
-          <tr>
-            <td width="100%">
-              <%= link_to favourite.title, post_path(favourite) %><br>
-            </td>
-            <td width="90%">
-              <% if current_user %>
-                  <% unless current_user.favourites.where(post: favourite).exists?  %>
-                    <%= link_to favourites_add_path(post_id: favourite.id),class: "empty-heart" do %>
-                      <i class="fa fa-heart-o"" aria-hidden="true"></i>
+<div class="tab-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-offset-3 col-md-6">
+        <table class="favourite-table">
+          <% @user.favourite_posts.each do |favourite| %>
+            <tr>
+              <td width="100%">
+                <%= link_to favourite.title, post_path(favourite) , class: "details" %><br>
+              </td>
+              <td width="90%">
+                <% if current_user %>
+                    <% unless current_user.favourites.where(post: favourite).exists?  %>
+                      <%= link_to favourites_add_path(post_id: favourite.id),class: "empty-heart" do %>
+                        <i class="fa fa-heart-o"" aria-hidden="true"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to favourites_remove_path(post_id: favourite.id),class: "filled-heart" do %>
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                      <% end %>
                     <% end %>
-                  <% else %>
-                    <%= link_to favourites_remove_path(post_id: favourite.id),class: "filled-heart" do %>
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                    <% end %>
-                  <% end %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </table>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
   </div>
 </div>
