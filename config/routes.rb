@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :users, only: [:index, :show, :destroy, :update] do
+  resources :users, only: [:show, :destroy, :update] do
      get 'newg', to: 'users#new_guide', on: :member
   end
 
