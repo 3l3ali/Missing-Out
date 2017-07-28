@@ -11,7 +11,7 @@
       </div>
       <div class="list-des">
         <h4><%= post.title %></h4>
-          <p>Category &nbsp;:&nbsp;<%= post.category %></p>
+          <p>Category &nbsp;:&nbsp;<%= post.category.capitalize %></p>
           <br>
       </div>
       <div class="list-link">
@@ -20,7 +20,7 @@
     </div>
     <div class="post-review-stat">
       <% unless post.reviews.count.zero? %>
-        <%= pluralize(post.reviews.count, 'review') %> |
+        <%= pluralize(post.reviews.count, 'review') %>
       <% else %>
         Be the first to review!
       <% end %>

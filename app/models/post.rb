@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   validates :photos, presence: true
   validates :title, presence: true
-  validates :description, presence: true, length: {minimum: 100}
+  validates :description, presence: true, length: {minimum: 40}
   validates :category, presence: true
 
   enum category: {
@@ -27,10 +27,10 @@ class Post < ApplicationRecord
 
   def self.categories_for_select
     {
-      "all": "all",
-      "activities": "activities",
-      "foods": "foods",
-      "entertainment": "entertainment"
+      "All": "all",
+      "Activities": "activities",
+      "Foods": "foods",
+      "Entertainment": "entertainment"
     }
   end
 end

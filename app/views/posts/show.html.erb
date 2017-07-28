@@ -63,13 +63,13 @@
               </div>
             <% end %>
             <div class="direction-btn">
-              <a href="https://www.google.com/maps/preview/@<%= @post.location.latitude %>,<%= @post.location.longitude %>" class="clean-look-btn">Directions</a>
+              <a href="https://www.google.com/maps/place/<%= @post.location.address %>" class="clean-look-btn">Directions</a>
             </div>
           </div>
         </div>
         <div class="clear"></div>
         <div class="place-review">
-          <p><%= @post.description %></p>
+          <p class="word-break"><%= @post.description %></p>
         </div>
       </div>
     </div>

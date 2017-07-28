@@ -18,7 +18,9 @@
 .fav-category {
   ul {
     list-style: none;
-
+    a {
+      text-decoration: none;
+    }
     li {
       font-size: 20px;
       opacity: 0.9;
