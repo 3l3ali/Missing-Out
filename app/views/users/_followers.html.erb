@@ -7,7 +7,7 @@
             <td width="30%">
               <div>
                 <% unless follower.facebook_picture_url.present? %>
-                  <%= (cl_image_tag follower.photo.path, :gravity=>"face", :width=>50, :height=>50, :crop=>"thumb") if follower.photo.present? %>
+                  <%= cl_image_tag follower.photo.path, class: "avatar-circle-xs-small" if follower.photo.present? %>
                 <% else %>
                   <%= image_tag follower.facebook_picture_url, class:"avatar-circle-xs-small" %>
                 <% end %>
@@ -22,7 +22,7 @@
             <% if current_user.id == @user.id %>
               <td width="30%">
                   <% unless current_user.following_ids.include?(follower.id) %>
-                    <%= link_to "Follow", followings_create_path(user_id: follower.id), class:"clean-look-btn" %>
+                    <%= link_to "Follow", followings_create_path(user_id: follower.id), class:"clean-look-btn-follow" %>
                     <% else %>
                     <%= link_to "Unfollow", followings_destroy_path(user_id: follower.id), data: {confirm: "Are you sure you want to unfollow #{follower.first_name}?"}  , class:"clean-look-btn-red" %>
                   <% end %>

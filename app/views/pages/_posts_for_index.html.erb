@@ -22,17 +22,17 @@
       <% unless post.reviews.count.zero? %>
         <%= pluralize(post.reviews.count, 'review') %> |
       <% else %>
-        Be the first one to review ! |
+        Be the first to review!
       <% end %>
 
       <% if post.reviews.where(recommended: true).count > 0 %>
-        <%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended |
+        | <%= pluralize(post.reviews.where(recommended: true).count, 'person') %> recommended
       <% else %>
-        0 recommened |
+        | 0 recommended
       <% end %>
 
       <% if user_signed_in? %>
-        <%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> reviewed.
+        | <%= pluralize( post.reviews.where(user_id: current_user.following_ids).count , 'friend') %> reviewed.
       <% end %>
 
     </div>
