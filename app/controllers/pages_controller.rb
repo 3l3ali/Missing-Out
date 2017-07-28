@@ -51,7 +51,7 @@ class PagesController < ApplicationController
       end
     else
       @users = User.where(travel_guide: true)
-      @users = @users.where("location LIKE ?", "%#{params[:place]}%")
+      @users = @users.where("location ILIKE ?", "%#{params[:place]}%")
       @users = @users.select { |user| user.languages.pluck(:name).include?(params[:language]) }
     end
   end
