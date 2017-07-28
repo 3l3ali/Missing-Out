@@ -12,7 +12,8 @@ a:hover{
     background-image: image-url('mobilebg.png');
     background-position: center center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background-size: cover;
   }
   .missing-out {
