@@ -88,7 +88,7 @@
                   <% if current_user.facebook_picture_url %>
                     <%= image_tag current_user.facebook_picture_url, class: "avatar-circle-xs-small dropdown-toggle", id: "navbar-missing-out-menu", "data-toggle" => "dropdown" %>
                   <% elsif current_user.photo.present? %>
-                   <%= cl_image_tag current_user.photo.path, :gravity=>"face", :width=>50, :height=>50, :crop=>"thumb", class: "avatar dropdown-toggle text-center", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
+                   <%= cl_image_tag current_user.photo.path, :gravity=>"face", :width=>50, :height=>50, :crop=>"thumb", class: "avatar dropdown-toggle text-center avatar-circle-xs-small", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
                   <% else %>
                     <%= image_tag "https://unsplash.it/50/50" , class: "avatar dropdown-toggle text-center", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
                   <% end %>
