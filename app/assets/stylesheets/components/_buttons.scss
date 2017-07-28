@@ -33,6 +33,7 @@ $green-border: #188822;
     color: #0092ca;
   }
 }
+
 .clean-look-btn-white-unfollow {
   background-color: white;
   color: rgba(34, 59, 113, 0.6);
@@ -56,6 +57,32 @@ $green-border: #188822;
     text-decoration: none;
     background-color: white;
     color: rgba(34, 59, 113, 0.6);
+  }
+}
+
+.clean-look-btn-white-unfollow-p {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  border: 1.5px solid white;
+  padding: 5px 10px;
+  &:hover {
+    text-decoration: none;
+    background-color: Transparent;
+    color: white;
+  }
+}
+.clean-look-btn-white-follow-p {
+  background-color: Transparent;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 19.5px;
+  border: 1.5px solid white;
+
+  &:hover {
+    text-decoration: none;
+    background-color: white;
+    color: black;
   }
 }
 
