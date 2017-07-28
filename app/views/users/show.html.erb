@@ -7,7 +7,7 @@
   <!-- User avatar  -->
   <div class="profile-avatar  profile-pic">
     <% unless @user.facebook_picture_url.present? %>
-      <%= cl_image_tag @user.photo.path, :transformation=>[{:width=>120, :height=>120, :gravity=>"face", :radius=>"max", :crop=>"crop"}] if @user.photo.present? %>
+      <%= cl_image_tag @user.photo.path, :transformation=>[{:width=>120, :height=>120, :gravity=>"face", :radius=>"max", :crop=>"thumb"}] if @user.photo.present? %>
     <% else %>
       <%= image_tag @user.facebook_picture_url %>
     <% end %>
@@ -53,7 +53,7 @@
 
 
 <!-- follwings/followers tabs -->
-<div>
+<div class="tabs-bg">
   <% if user_signed_in? %>
     <!-- Nav tabs -->
     <div class="tabs">
