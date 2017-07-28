@@ -5,6 +5,9 @@
 
 
 @media screen and (max-width: 768px){
+  a:hover {
+    text-decoration:none;
+  }
   .home-container {
     background-image: image-url('mobilebg.png');
     background-position: center center;
