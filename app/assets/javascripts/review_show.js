@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#myReviews li div').hide();
     size_li = $("#myReviews li div").size();
-    x=6;
+    x=24;
     $('#myReviews li div:lt('+x+')').show();
     $('#loadMore').click(function () {
         console.log("aheeeyy");

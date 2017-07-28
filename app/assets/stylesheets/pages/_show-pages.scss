@@ -12,8 +12,8 @@
 }
 
 .show-title h2{
-  line-height:14px;
-  font-size:24px;
+  line-height:20px;
+  font-size:20px;
 }
 .show-title p{
   font-size:14px;
@@ -23,21 +23,18 @@
   line-height:10px;
 }
 .show-box {
-  display:flex;
-  -webkit-align-items: center;
-   align-items: center;
-   -webkit-justify-content: space-between;
-   justify-content: space-between;
-}
-.show-title {
-  float:left;
 
 }
+.show-title {
+  width:100%;
+}
 .get-direction{
-  float:right;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
 }
 .clear {
-  clear:left;
+
 }
 .place-review {
   margin-top: 25px;
@@ -46,11 +43,16 @@
   color:#95989A;
 }
 .review-header{
-  display:flex;
-  -webkit-align-items: center;
-   align-items: center;
-   -webkit-justify-content: space-between;
-   justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width:100%;
 }
 .my-reviews{
 
@@ -165,10 +167,9 @@
 }
 .heart-fav {
   float:left;
-  margin:20px 40px 0 0;
+  margin:0;
 }
 .show-title h2{
-  float:left;
   margin-right:10px;
 }
 .post-review-stat {

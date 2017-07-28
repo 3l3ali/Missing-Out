@@ -16,7 +16,7 @@ clear: both;
  *zoom:1;
 }
 .banner {
-margin-bottom: 20px;
+margin-bottom: 0px;
 z-index: 1;
 }
 .banner .slider {
@@ -27,14 +27,14 @@ margin: 0;
 padding: 0;
 list-style: none;
 width: 100%;
-height: 447px;
+height: 267px;
 overflow: hidden;
 position: relative;
 }
 .banner .slider ul li {
 position: absolute;
 top: 0;
-left: 50%;
+
 }
 .banner .slider .dots:after {
 display: table;
@@ -83,4 +83,7 @@ float: left;
 }
 .banner .slider .arrow .btn-right {
 float: right;
+}
+.box a>img{
+  width:100%;
 }
