@@ -17,7 +17,8 @@
                 </p>
               </div>
                 <% unless guide.facebook_picture_url.present? %>
-                  <%= (cl_image_tag guide.photo.path, class:"avatar card-user") if guide.photo.present? %>
+                  <%= (cl_image_tag guide.photo.path,  :transformation=>[
+            {:width=>400, :height=>400, :gravity=>"face", :crop=>"thumb"}], class:"avatar card-user") if guide.photo.present? %>
                 <% else %>
                   <%= image_tag guide.facebook_picture_url, class:"avatar card-user" %>
                 <% end %>
