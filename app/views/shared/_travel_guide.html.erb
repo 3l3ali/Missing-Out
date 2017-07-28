@@ -1,29 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-offset-3 col-md-6">
-      <%= simple_form_for current_user do |f| %>
-        <%= f.input :age %>
-        <%= f.input :gender, collection: User.genders.keys %>
-        <%= f.input :location %>
-        <%#= current_user.languages.pluck(:name) %>
-        <div id="languages">
-          <%= f.simple_fields_for :languages do |language| %>
-            <%= render 'language_fields', f: language %>
-          <% end %>
-
-          <div class="links">
-            <%= link_to_add_association f, :languages, class: "minus-plus" do %>
-              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;add a language
+<div class="update-guide-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-offset-3 col-md-6">
+        <h2>Travel Guide Info</h2>
+        <%= simple_form_for current_user do |f| %>
+          <%= f.input :age %>
+          <%= f.input :gender, collection: User.genders.keys %>
+          <%= f.input :location %>
+          <%#= current_user.languages.pluck(:name) %>
+          <div id="languages">
+            <%= f.simple_fields_for :languages do |language| %>
+              <%= render 'language_fields', f: language %>
             <% end %>
+
+            <div class="links">
+              <%= link_to_add_association f, :languages, class: "minus-plus plus" do %>
+                <hr><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;add a language
+              <% end %>
+            </div>
           </div>
-        </div>
-        <%= f.input :contact, label: "contact information" %>
-        <%= f.input :travel_guide, label:"On Duty" %>
-        <%#= f.input :languages, collection: I18nData.languages.values, include_blank: true  %>
-        <%#= f.association :languages, as: :select %>
-        <%#= f.association :languages, value_method: :name, include_blank: false %>
-        <%= f.submit "Submit", class: "clean-look-btn-green back" %>
-      <% end %>
+          <%= f.input :contact, label: "contact information" %>
+          <%= f.input :travel_guide, label:"On Duty" %>
+          <%#= f.input :languages, collection: I18nData.languages.values, include_blank: true  %>
+          <%#= f.association :languages, as: :select %>
+          <%#= f.association :languages, value_method: :name, include_blank: false %>
+          <%= f.submit "Submit", class: "clean-look-btn-white back" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

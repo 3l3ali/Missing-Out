@@ -2,9 +2,9 @@
   <%#= f.input :name, label: "Language", as: :select, collection: Language.all, label_method: :name, value_method: :name %>
   <%#= f.input :name, collection: Language.all, prompt: "Choose a language" %>
   <%# langs = Language.available(current_user) %>
+  <%= f.input :name, label: "language" , collection: I18nData.languages.values, include_blank: false %>
   <%= link_to_remove_association f, class: "minus-plus" do %>
     <i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;remove language
   <% end %>
-  <%= f.input :name, label: "language" , collection: I18nData.languages.values, include_blank: false %>
 
 </div>

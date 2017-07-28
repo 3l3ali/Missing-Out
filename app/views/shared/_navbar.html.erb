@@ -93,7 +93,7 @@
                     <%= image_tag "https://unsplash.it/50/50" , class: "avatar dropdown-toggle text-center", id: "navbar-missing-out-menu", "data-toggle" => "dropdown"  %>
                   <% end %>
                   <p>
-                    <i class="fa fa-user"></i>&nbsp;<%= current_user.first_name %>&nbsp;<%= current_user.last_name %>
+                    <%= current_user.first_name %>&nbsp;<%= current_user.last_name %>
                   </p>
                 </div>
               </div>

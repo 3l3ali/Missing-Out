@@ -1,24 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-offset-3 col-md-6">
-      <div class="travel-guide-info-wrapper">
+<div class="travel-guide-info-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-offset-3 col-md-6">
         <% if @user.travel_guide? %>
           <ul>
             <li>
-              <h4>location</h4>
-              <h3><small><%= @user.location %></small></h3>
+              <h4>Location</h4>
+              <h5><%= @user.location %></h5>
             </li>
             <hr>
 
             <li>
               <h4>Age</h4>
-              <h3><small><%= @user.age %></small></h3>
+              <h5><%= @user.age %></h5>
             </li>
             <hr>
 
             <li>
-              <h4>gender</h4>
-              <h3><small><%= @user.gender %></small></h3>
+              <h4>Gender</h4>
+              <h5><%= @user.gender %></h5>
             </li>
             <hr>
 
@@ -26,7 +26,7 @@
               <h4>Languages</h4>
               <% if @user.languages.present? %>
                 <% @user.languages.each do |language| %>
-                  <h3><small><%= language.name %><small></h3>
+                  <h5><%= language.name %></h5>
                 <% end %>
               <% end %>
             </li>
@@ -34,20 +34,23 @@
 
             <li>
               <h4>Contact me</h4>
-              <h3><small><%= @user.contact %></small></h3>
+              <h5><%= @user.contact %></h5>
             </li>
           </ul>
-        <% elsif @user.travel_guide.nil? %>
-          <%= link_to "Become a travel guide", newg_user_path %>
-        <% else %>
-          <h1 class="text-center"><small>Off Duty !</small></h1>
-        <% end %>
+            <% elsif @user.travel_guide.nil? %>
+              <%= link_to "Become a travel guide", newg_user_path %>
+            <% else %>
+
+              <div class="off-duty">
+                <h3 class="text-center">Off Duty !</h3>
+              </div>
+            <% end %>
 
         <hr>
         <% if current_user.id == @user.id && !current_user.invalid_guide? %>
           <%= simple_form_for current_user do |f| %>
             <%= f.input :travel_guide, label: "Available", class: "form-control" %>
-            <%= f.submit "submit", class: "clean-look-btn-green submit-guide-info"%>
+            <%= f.submit "submit", class: "clean-look-btn-white submit-guide-info"%>
           <% end %>
         <% end %>
       </div>
