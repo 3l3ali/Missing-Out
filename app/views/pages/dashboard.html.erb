@@ -79,41 +79,61 @@
           <h2>Dashboard</h2>
         </div>
       </div>
+      <!-- GPS LOCATION -->
       <div class="col-xs-12">
-        <div class="dashboard-btn-desktop-1">
-          <%= link_to index_path do %>
-            <%= image_tag "gps-dash.png" %>
-          <% end %>
+        <div class="dashboard-btn-mobile-gps">
+          <div class="text-center">
+            <%= link_to index_path do %>
+              <%= image_tag "gps-dash.png" %>
+              <p>Find Things Near You</p>
+            <% end %>
+          </div>
         </div>
       </div>
+      <!-- ADD A GEM -->
       <div class="col-xs-3">
-        <div class="dashboard-btn-desktop">
-          <%= link_to new_post_path do %>
-            <%= image_tag "hiddengem-icon.png" %>
-          <% end %>
+        <div class="dashboard-btn-mobile">
+          <div class="text-center">
+            <%= link_to new_post_path do %>
+              <%= image_tag "hiddengem-icon.png" %>
+              <p>Add a Place</p>
+            <% end %>
+          </div>
         </div>
       </div>
+      <!-- SAVED LOCATIONS BUTTON -->
       <div class="col-xs-3">
-        <div class="dashboard-btn-desktop">
-          <%= link_to favourites_index_path do %>
-            <%= image_tag "savedlocation-icon.png" %>
-          <% end %>
+        <div class="dashboard-btn-mobile">
+          <div class="text-center">
+            <%= link_to favourites_index_path do %>
+              <%= image_tag "fav.png" %>
+              <p>Favorites</p>
+            <% end %>
+          </div>
         </div>
       </div>
+
+      <!-- TOUR GUIDE BUTTON -->
       <div class="col-xs-3">
-        <div class="dashboard-btn-desktop-2">
-        <%= link_to guide_path do %>
-          <%= image_tag "travel-guide.png" %>
-        <% end %>
+        <div class="dashboard-btn-mobile">
+          <div class="text-center">
+            <%= link_to guide_path do %>
+              <%= image_tag "travel-guide.png" %>
+              <p>Find a Guide</p>
+            <% end %>
+          </div>
         </div>
       </div>
+      <!-- PROFILE BUTTON -->
       <div class="col-xs-3">
-        <div class="dashboard-btn-desktop">
-        <%= link_to user_path(current_user) do %>
-          <%= image_tag "myprofile-icon.png" %>
-        <% end %>
+        <div class="dashboard-btn-mobile">
+          <div class="text-center">
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag "myprofile-icon.png" %>
+              <p>My Profile</p>
+            <% end %>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
