@@ -16,4 +16,5 @@ The Web App is Hosted on Heroku.
 
 ## 👇🏻 link 
 <h6><em>*note: hosted on a free server (takes a few seconds to load the first time)</em></h6>
+
 [missing-out.com](https://missing-out.herokuapp.com/)
