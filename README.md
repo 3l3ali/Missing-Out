@@ -15,6 +15,5 @@ Discover The Hidden Gems of New Countries and Add The Ones from Yours, Find Loca
 The Web App is Hosted on Heroku. 
 
 ## 👇🏻 link 
+[www.missing-out.com](https://missing-out.herokuapp.com/)
 <h6><em>*note: hosted on a free server (takes a few seconds to load the first time)</em></h6>
-
-[missing-out.com](https://missing-out.herokuapp.com/)
