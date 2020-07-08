@@ -1,7 +1,7 @@
-# 💎 About  
+## 💎 About  
 Discover The Hidden Gems of New Countries and Add The Ones from Yours, Find Local Tour Guides and a Small Social Media Platform Where You Can See Your Friends' Favorite Places and Upcoming Visits.
 
-# 🔥 Technologies  
+## 🔥 Technologies  
 - Ruby On Rails
 - Html
 - SCSS
@@ -11,9 +11,9 @@ Discover The Hidden Gems of New Countries and Add The Ones from Yours, Find Loca
 - Google Maps Api
 - PostgreSQL
 
-# 🌎 Hosting  
+## 🌎 Hosting  
 The Web App is Hosted on Heroku. 
 
-# 👇🏻 link 
-*note: hosted on a free server (takes a few seconds to load the first time)  
+## 👇🏻 link 
+<h6><em>*note: hosted on a free server (takes a few seconds to load the first time)</em></h6>
 [missing-out.com](https://missing-out.herokuapp.com/)
