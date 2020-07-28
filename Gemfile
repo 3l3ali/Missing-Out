@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
+ruby '2.6.6'
 
 # OUR GEMS BEGIN HERE
   gem 'cloudinary', '1.1.7'
@@ -20,7 +20,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
-gem 'rails', '5.0.4'
+gem 'rails', '~> 6.0'
 gem 'redis'
 
 gem 'autoprefixer-rails'
